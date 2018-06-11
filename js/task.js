@@ -12,7 +12,7 @@ class Task{
     generate(){
         document.getElementById('tempMedia').innerHTML = '';
         document.getElementById('answer').value = '';
-        const tasks = [/*this.arithmetics, this.translate, this.listening, this.capitals, this.sort,*/ this.redundant];
+        const tasks = [this.arithmetics, this.translate, this.listening, this.capitals, this.sort, this.redundant];
         const currentTask = mylib.getRandomArrayElement(tasks).bind(this);
         currentTask();
 

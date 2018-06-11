@@ -793,7 +793,7 @@ class Task{
     generate(){
         document.getElementById('tempMedia').innerHTML = '';
         document.getElementById('answer').value = '';
-        const tasks = [/*this.arithmetics, this.translate, this.listening, this.capitals, this.sort,*/ this.redundant];
+        const tasks = [this.arithmetics, this.translate, this.listening, this.capitals, this.sort, this.redundant];
         const currentTask = _mylib__WEBPACK_IMPORTED_MODULE_0__["default"].getRandomArrayElement(tasks).bind(this);
         currentTask();
 
