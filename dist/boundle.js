@@ -314,7 +314,6 @@ let game = new _game_js__WEBPACK_IMPORTED_MODULE_0__["default"]();
 let myGame = game.create.bind(game);
 btnStart.addEventListener('click', myGame);
 
-/*
 let audio = new Audio();
 audio.volume = 0.1;
 audio.src = './audio/soundtrack.mp3';
@@ -322,7 +321,6 @@ audio.autoplay = true;
 audio.loop = true;
 
 
-*/
 
 
 /***/ }),
