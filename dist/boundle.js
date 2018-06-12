@@ -283,15 +283,15 @@
         };
 
         const dictCapitalsTask = {
-          "img/capitalsTask/spain.jpg": ["madrid"],
-          "img/capitalsTask/belarus.jpeg": ["minsk"],
-          "img/capitalsTask/canada.jpg": ["ottawa", "ottava"],
-          "img/capitalsTask/germany.jpg": ["berlin"],
-          "img/capitalsTask/greatBritain.jpg": ["london"],
-          "img/capitalsTask/italy.jpg": ["rome", "rim"],
-          "img/capitalsTask/lithuania.jpg": ["vilnius", "vilnus"],
-          "img/capitalsTask/sweden.jpg": ["stockholm", "stokholm", "stokgolm"],
-          "img/capitalsTask/usa.png": ["washington"]
+          "img/capitalstask/spain.jpg": ["madrid"],
+          "img/capitalstask/belarus.jpeg": ["minsk"],
+          "img/capitalstask/canada.jpg": ["ottawa", "ottava"],
+          "img/capitalstask/germany.jpg": ["berlin"],
+          "img/capitalstask/greatBritain.jpg": ["london"],
+          "img/capitalstask/italy.jpg": ["rome", "rim"],
+          "img/capitalstask/lithuania.jpg": ["vilnius", "vilnus"],
+          "img/capitalstask/sweden.jpg": ["stockholm", "stokholm", "stokgolm"],
+          "img/capitalstask/usa.png": ["washington"]
         };
 
         const dictSortTask = {
