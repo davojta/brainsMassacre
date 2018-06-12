@@ -19,12 +19,12 @@ class Task {
     document.getElementById("tempMedia").innerHTML = "";
     document.getElementById("answer").value = "";
     const tasks = [
-      this.arithmetics,
-      this.translate,
+      this.arithmetics
+      /*      this.translate,
       this.listening,
       this.capitals,
       this.sort,
-      this.redundant
+      this.redundant*/
     ];
     const currentTask = mylib.getRandomArrayElement(tasks).bind(this);
     currentTask();
@@ -32,10 +32,21 @@ class Task {
 
   arithmetics() {
     this.type = "arithmetics";
-    const firstNumber = mylib.getRandomFromTo(0, 100);
-    const secondNumber = mylib.getRandomFromTo(0, 100);
+    let firstNumber;
+    let secondNumber;
     const operations = ["+", "-", "*", "/"];
     const operation = mylib.getRandomArrayElement(operations);
+    if (operation === "/") {
+      const RandNumber = mylib.getRandomFromTo(1, 15);
+      secondNumber = mylib.getRandomFromTo(1, 15);
+      firstNumber = RandNumber * secondNumber;
+    } else if (operation === "*") {
+      firstNumber = mylib.getRandomFromTo(0, 30);
+      secondNumber = mylib.getRandomFromTo(0, 30);
+    } else {
+      firstNumber = mylib.getRandomFromTo(0, 100);
+      secondNumber = mylib.getRandomFromTo(0, 100);
+    }
     this.condition = firstNumber + operation + secondNumber;
     this.solution.push(eval(this.condition).toString());
     document.querySelector(".taskDescription").innerHTML =
@@ -148,7 +159,7 @@ class Task {
   }
 
   isSolved() {
-    return this.solution.indexOf(this.answer.toLowerCase()) > -1;
+    return this.solution.includes(this.answer.toLowerCase());
   }
 }
 

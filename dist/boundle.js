@@ -312,11 +312,6 @@
             "img/capitalstask/spain.jpg",
             "img/capitalstask/italy.jpg"
           ],
-          "img/redudanttask/juventus.png": [
-            "img/redudanttask/arsenal.png",
-            "img/redudanttask/juventus.png",
-            "img/redudanttask/liverpool.png"
-          ],
           "img/redudanttask/elephant.jpg": [
             "img/redudanttask/bear.jpg",
             "img/redudanttask/lion.jpg",
@@ -1295,12 +1290,12 @@ audio.loop = true;*/
             document.getElementById("tempMedia").innerHTML = "";
             document.getElementById("answer").value = "";
             const tasks = [
-              this.arithmetics,
-              this.translate,
-              this.listening,
-              this.capitals,
-              this.sort,
-              this.redundant
+              this.arithmetics
+              /*      this.translate,
+      this.listening,
+      this.capitals,
+      this.sort,
+      this.redundant*/
             ];
             const currentTask = _mylib__WEBPACK_IMPORTED_MODULE_0__["default"]
               .getRandomArrayElement(tasks)
@@ -1310,16 +1305,35 @@ audio.loop = true;*/
 
           arithmetics() {
             this.type = "arithmetics";
-            const firstNumber = _mylib__WEBPACK_IMPORTED_MODULE_0__[
-              "default"
-            ].getRandomFromTo(0, 100);
-            const secondNumber = _mylib__WEBPACK_IMPORTED_MODULE_0__[
-              "default"
-            ].getRandomFromTo(0, 100);
+            let firstNumber;
+            let secondNumber;
             const operations = ["+", "-", "*", "/"];
             const operation = _mylib__WEBPACK_IMPORTED_MODULE_0__[
               "default"
             ].getRandomArrayElement(operations);
+            if (operation === "/") {
+              const RandNumber = _mylib__WEBPACK_IMPORTED_MODULE_0__[
+                "default"
+              ].getRandomFromTo(1, 15);
+              secondNumber = _mylib__WEBPACK_IMPORTED_MODULE_0__[
+                "default"
+              ].getRandomFromTo(1, 15);
+              firstNumber = RandNumber * secondNumber;
+            } else if (operation === "*") {
+              firstNumber = _mylib__WEBPACK_IMPORTED_MODULE_0__[
+                "default"
+              ].getRandomFromTo(0, 30);
+              secondNumber = _mylib__WEBPACK_IMPORTED_MODULE_0__[
+                "default"
+              ].getRandomFromTo(0, 30);
+            } else {
+              firstNumber = _mylib__WEBPACK_IMPORTED_MODULE_0__[
+                "default"
+              ].getRandomFromTo(0, 100);
+              secondNumber = _mylib__WEBPACK_IMPORTED_MODULE_0__[
+                "default"
+              ].getRandomFromTo(0, 100);
+            }
             this.condition = firstNumber + operation + secondNumber;
             this.solution.push(eval(this.condition).toString());
             document.querySelector(".taskDescription").innerHTML =
@@ -1485,7 +1499,7 @@ audio.loop = true;*/
           }
 
           isSolved() {
-            return this.solution.indexOf(this.answer.toLowerCase()) > -1;
+            return this.solution.includes(this.answer.toLowerCase());
           }
         }
 
