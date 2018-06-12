@@ -143,11 +143,6 @@ export const dictRedundantTask = {
     "img/capitalstask/spain.jpg",
     "img/capitalstask/italy.jpg"
   ],
-  "img/redudanttask/juventus.png": [
-    "img/redudanttask/arsenal.png",
-    "img/redudanttask/juventus.png",
-    "img/redudanttask/liverpool.png"
-  ],
   "img/redudanttask/elephant.jpg": [
     "img/redudanttask/bear.jpg",
     "img/redudanttask/lion.jpg",

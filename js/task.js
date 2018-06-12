@@ -24,7 +24,8 @@ class Task {
       this.listening,
       this.capitals,
       this.sort,
-      this.redundant
+      this.redundant,
+      this.equation
     ];
     const currentTask = mylib.getRandomArrayElement(tasks).bind(this);
     currentTask();
@@ -32,10 +33,21 @@ class Task {
 
   arithmetics() {
     this.type = "arithmetics";
-    const firstNumber = mylib.getRandomFromTo(0, 100);
-    const secondNumber = mylib.getRandomFromTo(0, 100);
+    let firstNumber;
+    let secondNumber;
     const operations = ["+", "-", "*", "/"];
     const operation = mylib.getRandomArrayElement(operations);
+    if (operation === "/") {
+      const RandNumber = mylib.getRandomFromTo(1, 15);
+      secondNumber = mylib.getRandomFromTo(1, 15);
+      firstNumber = RandNumber * secondNumber;
+    } else if (operation === "*") {
+      firstNumber = mylib.getRandomFromTo(0, 30);
+      secondNumber = mylib.getRandomFromTo(0, 30);
+    } else {
+      firstNumber = mylib.getRandomFromTo(0, 100);
+      secondNumber = mylib.getRandomFromTo(0, 100);
+    }
     this.condition = firstNumber + operation + secondNumber;
     this.solution.push(eval(this.condition).toString());
     document.querySelector(".taskDescription").innerHTML =
@@ -147,8 +159,82 @@ class Task {
       "choose the redundant picture:";
   }
 
+  equation() {
+    this.type = "equation";
+
+    const apple = document.createElement("img");
+    const banana = document.createElement("img");
+    const coconut = document.createElement("img");
+
+    const appleValue = mylib.getRandomFromTo(2, 10);
+    const bananaValue = mylib.getRandomFromTo(2, 10);
+    const coconutValue = mylib.getRandomFromTo(2, 10);
+
+    apple.setAttribute("src", "img/equationTask/apple.png");
+    banana.setAttribute("src", "img/equationTask/banana.png");
+    coconut.setAttribute("src", "img/equationTask/coconut.png");
+
+    const plus = document.createElement("h3");
+    const minus = document.createElement("h3");
+    plus.innerText = " + ";
+    minus.innerText = " - ";
+
+    const firstResult = document.createElement("h3");
+    const secondResult = document.createElement("h3");
+    const thirdResult = document.createElement("h3");
+    const fourthResult = document.createElement("h3");
+
+    firstResult.innerText = ` = ${appleValue * 3}`;
+    secondResult.innerText = ` = ${appleValue + bananaValue * 2}`;
+    thirdResult.innerText = ` = ${bananaValue - coconutValue}`;
+    fourthResult.innerText = ` = ?`;
+
+    const firstRow = document.createElement("div");
+    firstRow.classList.add("equationRow");
+    const secondRow = firstRow.cloneNode();
+    const thirdRow = firstRow.cloneNode();
+    const fourthRow = firstRow.cloneNode();
+
+    firstRow.appendChild(apple.cloneNode(true));
+    firstRow.appendChild(plus.cloneNode(true));
+    firstRow.appendChild(apple.cloneNode(true));
+    firstRow.appendChild(plus.cloneNode(true));
+    firstRow.appendChild(apple.cloneNode(true));
+    firstRow.appendChild(firstResult);
+
+    secondRow.appendChild(apple.cloneNode(true));
+    secondRow.appendChild(plus.cloneNode(true));
+    secondRow.appendChild(banana.cloneNode(true));
+    secondRow.appendChild(plus.cloneNode(true));
+    secondRow.appendChild(banana.cloneNode(true));
+    secondRow.appendChild(secondResult);
+
+    thirdRow.appendChild(banana.cloneNode(true));
+    thirdRow.appendChild(minus.cloneNode(true));
+    thirdRow.appendChild(coconut.cloneNode(true));
+    thirdRow.appendChild(thirdResult);
+
+    fourthRow.appendChild(apple.cloneNode(true));
+    fourthRow.appendChild(plus.cloneNode(true));
+    fourthRow.appendChild(banana.cloneNode(true));
+    fourthRow.appendChild(plus.cloneNode(true));
+    fourthRow.appendChild(coconut.cloneNode(true));
+    fourthRow.appendChild(fourthResult);
+
+    const media = document.getElementById("tempMedia");
+    media.appendChild(firstRow);
+    media.appendChild(secondRow);
+    media.appendChild(thirdRow);
+    media.appendChild(fourthRow);
+
+    this.solution.push(String(appleValue + bananaValue + coconutValue));
+
+    document.querySelector(".taskDescription").innerHTML =
+      "solve the equation:";
+  }
+
   isSolved() {
-    return this.solution.indexOf(this.answer.toLowerCase()) > -1;
+    return this.solution.includes(this.answer.toLowerCase());
   }
 }
 
