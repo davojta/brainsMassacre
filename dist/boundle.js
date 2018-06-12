@@ -433,8 +433,9 @@
             const chosenInput = Array.prototype.filter.call(
               arrayOfInputs,
               i => i.checked
-            )[0].value;
-            document.getElementById("answer").value = chosenInput;
+            )[0];
+            if (chosenInput === undefined) return false;
+            document.getElementById("answer").value = chosenInput.value;
             document.getElementById("answer").style.display = "inline-block";
           }
 
@@ -515,16 +516,26 @@
         /* harmony import */ var _game_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
           /*! ./game.js */ "./js/game.js"
         );
+        /* harmony import */ var _mylib__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+          /*! ./mylib */ "./js/mylib.js"
+        );
 
         let game = new _game_js__WEBPACK_IMPORTED_MODULE_0__["default"]();
         let myGame = game.create.bind(game);
-        btnStart.addEventListener("click", myGame);
 
-        let audio = new Audio();
-        audio.volume = 0.1;
-        audio.src = "./audio/soundtrack.mp3";
-        audio.autoplay = true;
-        audio.loop = true;
+        regForm.addEventListener("submit", event => {
+          event.preventDefault();
+          _mylib__WEBPACK_IMPORTED_MODULE_1__["default"].validateForm(
+            "playerName",
+            myGame
+          );
+        });
+
+        /*let audio = new Audio();
+audio.volume = 0.1;
+audio.src = "./audio/soundtrack.mp3";
+audio.autoplay = true;
+audio.loop = true;*/
 
         /***/
       },
@@ -1032,6 +1043,13 @@
               array[randIndex] = tempValue;
             }
             return array;
+          }
+
+          static validateForm(id, func) {
+            const name = document.getElementById(id).value;
+            if (name !== "") {
+              func();
+            }
           }
         }
 
