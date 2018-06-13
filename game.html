@@ -10,7 +10,7 @@
 </head>
 <body>
   <section class="regPage">
-    <h2>PLAY THE GAME!</h2>
+    <h2>brains massacre game</h2>
     <form id="regForm">
       <label>NAME:</label>
       <input id="playerName" type="text" placeholder="*your name" required autofocus>
@@ -18,11 +18,11 @@
     </form>
   </section>
   <section class="gamePage">
-    <div class="fighterNames">
+    <div class="fightersNames">
       <h3 class="playerName"></h3>
       <h3 class="monsterName"></h3>
     </div>
-    <div class="fighterHealthes">
+    <div class="fightersHealth">
       <div class="fighterHealth">
         <div class="playerHealthRemain"></div>
       </div>
@@ -31,9 +31,7 @@
       </div>
     </div>
     <h2 class="round">ROUND 1</h2>
-    <form>
-      <button id="btnChooseSpell" type="button">Choose spell!</button>
-    </form>
+    <button id="btnChooseSpell" type="button">Choose spell!</button>
     <div class="spritePlayer spritePlayerIdle"></div>
     <div class="spriteMonster">
       <div class="spriteMonsterHeadIdle"></div>
@@ -42,6 +40,7 @@
     </div>
   </section>
   <section class="scoresPage">
+    <h2>Highscores</h2>
     <table>
       <tr>
         <th>Player</th>
@@ -62,7 +61,7 @@
   <section class="taskPage">
     <div class="modalWindow modalWindow__task">
       <h2 class="taskDescription"></h2>
-      <div id="tempMedia"></div>
+      <div class="tempMedia"></div>
       <form onsubmit="return false;">
         <input id="answer" type="text" placeholder="your answer">
         <button id="btnAnswer" type="submit">ANSWER!</button>

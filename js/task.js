@@ -16,7 +16,7 @@ class Task {
   }
 
   generate() {
-    document.getElementById("tempMedia").innerHTML = "";
+    document.querySelector(".tempMedia").innerHTML = "";
     document.getElementById("answer").value = "";
     const tasks = [
       this.arithmetics,
@@ -77,7 +77,7 @@ class Task {
     const insertingAudio = document.createElement("audio");
     insertingAudio.setAttribute("src", this.condition);
     insertingAudio.setAttribute("controls", "");
-    document.getElementById("tempMedia").appendChild(insertingAudio);
+    document.querySelector(".tempMedia").appendChild(insertingAudio);
     document.querySelector(".taskDescription").innerHTML =
       "type the word you heard";
   }
@@ -92,7 +92,7 @@ class Task {
 
     const insertingFlag = document.createElement("img");
     insertingFlag.setAttribute("src", this.condition);
-    document.getElementById("tempMedia").appendChild(insertingFlag);
+    document.querySelector(".tempMedia").appendChild(insertingFlag);
     document.querySelector(".taskDescription").innerHTML =
       "what is the capital of:";
   }
@@ -118,7 +118,7 @@ class Task {
       ul.appendChild(li);
     }
 
-    document.getElementById("tempMedia").appendChild(ul);
+    document.querySelector(".tempMedia").appendChild(ul);
 
     $(function() {
       $(".sortable")
@@ -141,7 +141,7 @@ class Task {
     );
     this.condition = dictRedundantTask[this.solution];
 
-    const media = document.getElementById("tempMedia");
+    const media = document.querySelector(".tempMedia");
     for (let i = 0; i < 3; i++) {
       const label = document.createElement("label");
       const input = document.createElement("input");
@@ -221,7 +221,7 @@ class Task {
     fourthRow.appendChild(coconut.cloneNode(true));
     fourthRow.appendChild(fourthResult);
 
-    const media = document.getElementById("tempMedia");
+    const media = document.querySelector(".tempMedia");
     media.appendChild(firstRow);
     media.appendChild(secondRow);
     media.appendChild(thirdRow);

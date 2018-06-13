@@ -64,7 +64,10 @@ class Game {
       arrayOfInputs,
       i => i.checked
     )[0];
-    if (chosenInput === undefined) return false;
+    if (chosenInput === undefined) {
+      document.getElementById("answer").style.display = "inline-block";
+      return false;
+    }
     document.getElementById("answer").value = chosenInput.value;
     document.getElementById("answer").style.display = "inline-block";
   }
