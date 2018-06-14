@@ -521,10 +521,22 @@
         let game = new _game_js__WEBPACK_IMPORTED_MODULE_0__["default"]();
         let myGame = game.create.bind(game);
 
-        window.onload = function() {
+        function loadImages() {
+          let img = new Image();
+          img.src = "./img/arena1.jpg";
+          img.src = "./img/123.jpg";
+          img.src = "./img/heal.png";
+        }
+
+        function xxx() {
           document.querySelector(".loading").style.display = "none";
           document.querySelector(".regPage").style.display = "block";
-        };
+        }
+
+        let promise = new Promise(resolve => {
+          loadImages();
+        });
+        promise.then(xxx());
 
         regForm.addEventListener("submit", event => {
           event.preventDefault();
