@@ -610,7 +610,9 @@
           "./img/123.jpg"
         );
 
-        window.onload = xxx();
+        window.onload = function() {
+          xxx();
+        };
 
         regForm.addEventListener("submit", event => {
           event.preventDefault();
