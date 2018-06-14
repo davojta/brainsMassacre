@@ -1,63 +1,63 @@
 export const dictMonster = {
   headsIdle: [
-    "spriteMonsterHeadIdle_first",
-    "spriteMonsterHeadIdle_second",
-    "spriteMonsterHeadIdle_third"
+    "sprite-monster__head_idle_first",
+    "sprite-monster__head_idle_second",
+    "sprite-monster__head_idle_third"
   ],
   bodiesIdle: [
-    "spriteMonsterBodyIdle_first",
-    "spriteMonsterBodyIdle_second",
-    "spriteMonsterBodyIdle_third"
+    "sprite-monster__body_idle_first",
+    "sprite-monster__body_idle_second",
+    "sprite-monster__body_idle_third"
   ],
   legsIdle: [
-    "spriteMonsterLegsIdle_first",
-    "spriteMonsterLegsIdle_second",
-    "spriteMonsterLegsIdle_third"
+    "sprite-monster__legs_idle_first",
+    "sprite-monster__legs_idle_second",
+    "sprite-monster__legs_idle_third"
   ],
   headsFire: [
-    "spriteMonsterHeadFire_first",
-    "spriteMonsterHeadFire_second",
-    "spriteMonsterHeadFire_third"
+    "sprite-monster__head_fire_first",
+    "sprite-monster__head_fire_second",
+    "sprite-monster__head_fire_third"
   ],
   bodiesFire: [
-    "spriteMonsterBodyFire_first",
-    "spriteMonsterBodyFire_second",
-    "spriteMonsterBodyFire_third"
+    "sprite-monster__body_fire_first",
+    "sprite-monster__body_fire_second",
+    "sprite-monster__body_fire_third"
   ],
   legsFire: [
-    "spriteMonsterLegsFire_first",
-    "spriteMonsterLegsFire_second",
-    "spriteMonsterLegsFire_third"
+    "sprite-monster__legs_fire_first",
+    "sprite-monster__legs_fire_second",
+    "sprite-monster__legs_fire_third"
   ],
   headsHurt: [
-    "spriteMonsterHeadHurt_first",
-    "spriteMonsterHeadHurt_second",
-    "spriteMonsterHeadHurt_third"
+    "sprite-monster__head_hurt_first",
+    "sprite-monster__head_hurt_second",
+    "sprite-monster__head_hurt_third"
   ],
   bodiesHurt: [
-    "spriteMonsterBodyHurt_first",
-    "spriteMonsterBodyHurt_second",
-    "spriteMonsterBodyHurt_third"
+    "sprite-monster__body_hurt_first",
+    "sprite-monster__body_hurt_second",
+    "sprite-monster__body_hurt_third"
   ],
   legsHurt: [
-    "spriteMonsterLegsHurt_first",
-    "spriteMonsterLegsHurt_second",
-    "spriteMonsterLegsHurt_third"
+    "sprite-monster__legs_hurt_first",
+    "sprite-monster__legs_hurt_second",
+    "sprite-monster__legs_hurt_third"
   ],
   headsDie: [
-    "spriteMonsterHeadDie_first",
-    "spriteMonsterHeadDie_second",
-    "spriteMonsterHeadDie_third"
+    "sprite-monster__head_die_first",
+    "sprite-monster__head_die_second",
+    "sprite-monster__head_die_third"
   ],
   bodiesDie: [
-    "spriteMonsterBodyDie_first",
-    "spriteMonsterBodyDie_second",
-    "spriteMonsterBodyDie_third"
+    "sprite-monster__body_die_first",
+    "sprite-monster__body_die_second",
+    "sprite-monster__body_die_third"
   ],
   legsDie: [
-    "spriteMonsterLegsDie_first",
-    "spriteMonsterLegsDie_second",
-    "spriteMonsterLegsDie_third"
+    "sprite-monster__legs_die_first",
+    "sprite-monster__legs_die_second",
+    "sprite-monster__legs_die_third"
   ],
 
   firstNames: [
@@ -68,7 +68,11 @@ export const dictMonster = {
     "Genrich",
     "Sigizmund",
     "Aslanbek",
-    "Bzdashek"
+    "Bzdashek",
+    "Ernest",
+    "Gans",
+    "Givi",
+    "Zayceslav"
   ],
   secondNames: [
     '"Hriply"',
@@ -76,7 +80,10 @@ export const dictMonster = {
     '"Bambula"',
     '"Baklan"',
     '"Brodyaga"',
-    '"Vertuhai"'
+    '"Vertuhai"',
+    '"Aristocrat"',
+    '"Lentyai"',
+    '"Babusya"'
   ],
   thirdNames: [
     "Vonuchkin",
@@ -85,10 +92,14 @@ export const dictMonster = {
     "Kakulko",
     "Soplivkin",
     "Gryaznulenko",
-    "Potnyakovich"
+    "Potnyakovich",
+    "Zaperdyak",
+    "Suhozad",
+    "Tryapkin",
+    "Zapadlovsky"
   ],
 
-  backgroundImages: ["arena1", "arena2", "arena3", "arena4"]
+  backgroundImages: ["arena_1", "arena_2", "arena_3", "arena_4"]
 };
 
 export const dictTranslateTask = {
@@ -118,7 +129,7 @@ export const dictCapitalsTask = {
   "img/capitalstask/belarus.jpeg": ["minsk"],
   "img/capitalstask/canada.jpg": ["ottawa", "ottava"],
   "img/capitalstask/germany.jpg": ["berlin"],
-  "img/capitalstask/greatBritain.jpg": ["london"],
+  "img/capitalstask/greatbritain.jpg": ["london"],
   "img/capitalstask/italy.jpg": ["rome", "rim"],
   "img/capitalstask/lithuania.jpg": ["vilnius", "vilnus"],
   "img/capitalstask/sweden.jpg": ["stockholm", "stokholm", "stokgolm"],

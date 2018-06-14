@@ -16,7 +16,7 @@ class Task {
   }
 
   generate() {
-    document.querySelector(".tempMedia").innerHTML = "";
+    document.querySelector(".modal-window__task_media").innerHTML = "";
     document.getElementById("answer").value = "";
     const tasks = [
       this.arithmetics,
@@ -50,7 +50,7 @@ class Task {
     }
     this.condition = firstNumber + operation + secondNumber;
     this.solution.push(eval(this.condition).toString());
-    document.querySelector(".taskDescription").innerHTML =
+    document.querySelector(".modal-window__task_description").innerHTML =
       "solve the task:<br>" + this.condition;
   }
 
@@ -62,7 +62,7 @@ class Task {
       arrayOfWords[mylib.getRandomFromTo(0, arrayOfWordsLength - 1)];
     this.solution = dictTranslateTask[this.condition];
 
-    document.querySelector(".taskDescription").innerHTML =
+    document.querySelector(".modal-window__task_description").innerHTML =
       "translate into russian:<br>" + this.condition;
   }
 
@@ -77,8 +77,10 @@ class Task {
     const insertingAudio = document.createElement("audio");
     insertingAudio.setAttribute("src", this.condition);
     insertingAudio.setAttribute("controls", "");
-    document.querySelector(".tempMedia").appendChild(insertingAudio);
-    document.querySelector(".taskDescription").innerHTML =
+    document
+      .querySelector(".modal-window__task_media")
+      .appendChild(insertingAudio);
+    document.querySelector(".modal-window__task_description").innerHTML =
       "type the word you heard";
   }
 
@@ -92,8 +94,10 @@ class Task {
 
     const insertingFlag = document.createElement("img");
     insertingFlag.setAttribute("src", this.condition);
-    document.querySelector(".tempMedia").appendChild(insertingFlag);
-    document.querySelector(".taskDescription").innerHTML =
+    document
+      .querySelector(".modal-window__task_media")
+      .appendChild(insertingFlag);
+    document.querySelector(".modal-window__task_description").innerHTML =
       "what is the capital of:";
   }
 
@@ -118,7 +122,7 @@ class Task {
       ul.appendChild(li);
     }
 
-    document.querySelector(".tempMedia").appendChild(ul);
+    document.querySelector(".modal-window__task_media").appendChild(ul);
 
     $(function() {
       $(".sortable")
@@ -126,7 +130,7 @@ class Task {
         .disableSelection();
     });
 
-    document.querySelector(".taskDescription").innerHTML =
+    document.querySelector(".modal-window__task_description").innerHTML =
       "put the letters in the correct order:";
   }
 
@@ -141,7 +145,7 @@ class Task {
     );
     this.condition = dictRedundantTask[this.solution];
 
-    const media = document.querySelector(".tempMedia");
+    const media = document.querySelector(".modal-window__task_media");
     for (let i = 0; i < 3; i++) {
       const label = document.createElement("label");
       const input = document.createElement("input");
@@ -155,7 +159,7 @@ class Task {
       media.appendChild(label);
     }
 
-    document.querySelector(".taskDescription").innerHTML =
+    document.querySelector(".modal-window__task_description").innerHTML =
       "choose the redundant picture:";
   }
 
@@ -190,7 +194,7 @@ class Task {
     fourthResult.innerText = ` = ?`;
 
     const firstRow = document.createElement("div");
-    firstRow.classList.add("equationRow");
+    firstRow.classList.add("equation-row");
     const secondRow = firstRow.cloneNode();
     const thirdRow = firstRow.cloneNode();
     const fourthRow = firstRow.cloneNode();
@@ -221,7 +225,7 @@ class Task {
     fourthRow.appendChild(coconut.cloneNode(true));
     fourthRow.appendChild(fourthResult);
 
-    const media = document.querySelector(".tempMedia");
+    const media = document.querySelector(".modal-window__task_media");
     media.appendChild(firstRow);
     media.appendChild(secondRow);
     media.appendChild(thirdRow);
@@ -229,7 +233,7 @@ class Task {
 
     this.solution.push(String(appleValue + bananaValue + coconutValue));
 
-    document.querySelector(".taskDescription").innerHTML =
+    document.querySelector(".modal-window__task_description").innerHTML =
       "solve the equation:";
   }
 

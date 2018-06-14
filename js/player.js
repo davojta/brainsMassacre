@@ -9,15 +9,15 @@ class Player {
   }
 
   drawPlayer() {
-    document.querySelector(".playerName").innerHTML = this.name;
+    document.querySelector(".player-name").innerHTML = this.name;
     this.drawHealth();
     this.createSounds();
   }
 
   drawHealth() {
-    document.querySelector(".playerHealthRemain").style.width =
+    document.querySelector(".player-health__remain").style.width =
       (this.health / this.startHealth) * 100 + "%";
-    document.querySelector(".playerHealthRemain").innerHTML = this.health;
+    document.querySelector(".player-health__remain").innerHTML = this.health;
   }
 
   createSounds() {
@@ -32,52 +32,66 @@ class Player {
   fire() {
     this.audioFire.play();
     document
-      .querySelector(".spritePlayer")
-      .classList.remove("spritePlayerIdle");
-    document.querySelector(".spritePlayer").classList.add("spritePlayerFire");
+      .querySelector(".sprite-player")
+      .classList.remove("sprite-player__idle");
+    document
+      .querySelector(".sprite-player")
+      .classList.add("sprite-player__fire");
   }
 
   stopFire() {
     document
-      .querySelector(".spritePlayer")
-      .classList.remove("spritePlayerFire");
-    document.querySelector(".spritePlayer").classList.add("spritePlayerIdle");
+      .querySelector(".sprite-player")
+      .classList.remove("sprite-player__fire");
+    document
+      .querySelector(".sprite-player")
+      .classList.add("sprite-player__idle");
   }
 
   healing() {
     this.audioHeal.play();
     document
-      .querySelector(".spritePlayer")
-      .classList.remove("spritePlayerIdle");
-    document.querySelector(".spritePlayer").classList.add("spritePlayerHeal");
+      .querySelector(".sprite-player")
+      .classList.remove("sprite-player__idle");
+    document
+      .querySelector(".sprite-player")
+      .classList.add("sprite-player__heal");
   }
 
   stopHealing() {
     document
-      .querySelector(".spritePlayer")
-      .classList.remove("spritePlayerHeal");
-    document.querySelector(".spritePlayer").classList.add("spritePlayerIdle");
+      .querySelector(".sprite-player")
+      .classList.remove("sprite-player__heal");
+    document
+      .querySelector(".sprite-player")
+      .classList.add("sprite-player__idle");
   }
 
   hurt() {
     document
-      .querySelector(".spritePlayer")
-      .classList.remove("spritePlayerIdle");
-    document.querySelector(".spritePlayer").classList.add("spritePlayerHurt");
+      .querySelector(".sprite-player")
+      .classList.remove("sprite-player__idle");
+    document
+      .querySelector(".sprite-player")
+      .classList.add("sprite-player__hurt");
   }
 
   stopHurt() {
     document
-      .querySelector(".spritePlayer")
-      .classList.remove("spritePlayerHurt");
-    document.querySelector(".spritePlayer").classList.add("spritePlayerIdle");
+      .querySelector(".sprite-player")
+      .classList.remove("sprite-player__hurt");
+    document
+      .querySelector(".sprite-player")
+      .classList.add("sprite-player__idle");
   }
 
   die() {
     document
-      .querySelector(".spritePlayer")
-      .classList.remove("spritePlayerIdle");
-    document.querySelector(".spritePlayer").classList.add("spritePlayerDie");
+      .querySelector(".sprite-player")
+      .classList.remove("sprite-player__idle");
+    document
+      .querySelector(".sprite-player")
+      .classList.add("sprite-player__die");
   }
 
   isAlive() {

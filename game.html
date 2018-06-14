@@ -9,41 +9,41 @@
   <title>Game</title>
 </head>
 <body>
-  <section class="loadingPage">
+  <section class="loading-page">
     <h2>the game is loading, please wait...</h2>
     <div class="spinner"></div>
   </section>
-  <section class="regPage">
+  <section class="reg-page">
     <h2>brains massacre game</h2>
-    <form id="regForm">
+    <form id="reg-form">
       <label>NAME:</label>
-      <input id="playerName" type="text" placeholder="*your name" required autofocus>
-      <button id="btnStart" type="submit">START!</button>
+      <input id="player-name" type="text" placeholder="*your name" required autofocus>
+      <button id="btn-start" type="submit">START!</button>
     </form>
   </section>
-  <section class="gamePage">
-    <div class="fightersNames">
-      <h3 class="playerName"></h3>
-      <h3 class="monsterName"></h3>
+  <section class="game-page">
+    <div class="fighters-names">
+      <h3 class="player-name"></h3>
+      <h3 class="monster-name"></h3>
     </div>
-    <div class="fightersHealth">
-      <div class="fighterHealth">
-        <div class="playerHealthRemain"></div>
+    <div class="fighters-health">
+      <div class="fighter-health player-health">
+        <div class="player-health__remain"></div>
       </div>
-      <div class="fighterHealth monsterHealth">
-        <div class="monsterHealthRemain"></div>
+      <div class="fighter-health monster-health">
+        <div class="monster-health__remain"></div>
       </div>
     </div>
     <h2 class="round">ROUND 1</h2>
-    <button id="btnChooseSpell" type="button">Choose spell!</button>
-    <div class="spritePlayer spritePlayerIdle"></div>
-    <div class="spriteMonster">
-      <div class="spriteMonsterHeadIdle"></div>
-      <div class="spriteMonsterBodyIdle"></div>
-      <div class="spriteMonsterLegsIdle"></div>
+    <button id="btn-choose-spell" type="button">Choose spell!</button>
+    <div class="sprite-player sprite-player__idle"></div>
+    <div class="sprite-monster">
+      <div class="sprite-monster__head_idle"></div>
+      <div class="sprite-monster__body_idle"></div>
+      <div class="sprite-monster__legs_idle"></div>
     </div>
   </section>
-  <section class="scoresPage">
+  <section class="scores-page">
     <h2>Highscores</h2>
     <table>
       <tr>
@@ -53,22 +53,22 @@
     </table>
     <!--<button id="btnNewGame" type="button">NEW GAME!</button>-->
   </section>
-  <section class="spellPage">
-    <div class="modalWindow modalWindow__spell">
-      <h2 class="spellHeader">Choose the spell</h2>
-      <div class="spells">
-        <img id="atackSpell" class="spellType" src="img/sword.png">
-        <img id="healSpell" class="spellType" src="img/heal.png">
+  <section class="spell-page">
+    <div class="modal-window modal-window__spell">
+      <h2 class="modal-window__spell_header">Choose the spell</h2>
+      <div class="modal-window__spell">
+        <img id="atack-spell" class="modal-window__spell_kind" src="img/sword.png">
+        <img id="heal-spell" class="modal-window__spell_kind" src="img/heal.png">
       </div>
     </div>
   </section>
-  <section class="taskPage">
-    <div class="modalWindow modalWindow__task">
-      <h2 class="taskDescription"></h2>
-      <div class="tempMedia"></div>
+  <section class="task-page">
+    <div class="modal-window modal-window__task">
+      <h2 class="modal-window__task_description"></h2>
+      <div class="modal-window__task_media"></div>
       <form onsubmit="return false;">
         <input id="answer" type="text" placeholder="your answer">
-        <button id="btnAnswer" type="submit">ANSWER!</button>
+        <button id="btn-answer" type="submit">ANSWER!</button>
       </form>
     </div>
   </section>

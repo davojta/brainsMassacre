@@ -7,13 +7,13 @@ let myGame = game.create.bind(game);
 
 mylib.preload(preloadImages);
 window.onload = function() {
-  document.querySelector(".loadingPage").style.display = "none";
-  document.querySelector(".regPage").style.display = "block";
+  document.querySelector(".loading-page").style.display = "none";
+  document.querySelector(".reg-page").style.display = "block";
 };
 
-regForm.addEventListener("submit", event => {
+document.getElementById("reg-form").addEventListener("submit", event => {
   event.preventDefault();
-  mylib.validateForm("playerName", myGame);
+  mylib.validateForm("player-name", myGame);
 });
 
 /*let audio = new Audio();
