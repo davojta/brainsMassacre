@@ -19,11 +19,11 @@ function xxx() {
 
 let promise = new Promise(resolve => {
   preload(
-    "./img/spritePlayer.png",
+    "../img/spritePlayer.png",
     "./img/arena1.jpg",
-    "./img/arena2.png",
-    "./img/arena3.png",
-    "./img/arena4.png",
+    "/img/arena2.png",
+    "img/arena3.png",
+    "arena4.png",
     "./img/heal.png",
     "./img/sword.png",
     "./img/smoke.png",
