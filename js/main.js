@@ -4,6 +4,11 @@ import mylib from "./mylib";
 let game = new Game();
 let myGame = game.create.bind(game);
 
+window.onload = function() {
+  document.querySelector(".loading").style.display = "none";
+  document.querySelector(".regPage").style.display = "block";
+};
+
 regForm.addEventListener("submit", event => {
   event.preventDefault();
   mylib.validateForm("playerName", myGame);
