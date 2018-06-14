@@ -4,11 +4,19 @@ import mylib from "./mylib";
 let game = new Game();
 let myGame = game.create.bind(game);
 
-function loadImages() {
+/*function loadImages() {
   let img = new Image();
   img.src = "./img/arena1.jpg";
   img.src = "./img/123.jpg";
   img.src = "./img/heal.png";
+}*/
+
+let images = new Array();
+function preload(...args) {
+  for (let i = 0; i < args.length; i++) {
+    images[i] = new Image();
+    images[i].src = args[i];
+  }
 }
 
 function xxx() {
@@ -17,7 +25,7 @@ function xxx() {
 }
 
 let promise = new Promise(resolve => {
-  loadImages();
+  preload("img/arena1.jpg", "img/123.jpg", "img/heal.png");
 });
 promise.then(xxx());
 

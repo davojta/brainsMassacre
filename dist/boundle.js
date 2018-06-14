@@ -521,11 +521,19 @@
         let game = new _game_js__WEBPACK_IMPORTED_MODULE_0__["default"]();
         let myGame = game.create.bind(game);
 
-        function loadImages() {
-          let img = new Image();
-          img.src = "./img/arena1.jpg";
-          img.src = "./img/123.jpg";
-          img.src = "./img/heal.png";
+        /*function loadImages() {
+  let img = new Image();
+  img.src = "./img/arena1.jpg";
+  img.src = "./img/123.jpg";
+  img.src = "./img/heal.png";
+}*/
+
+        let images = new Array();
+        function preload(...args) {
+          for (let i = 0; i < args.length; i++) {
+            images[i] = new Image();
+            images[i].src = args[i];
+          }
         }
 
         function xxx() {
@@ -534,7 +542,7 @@
         }
 
         let promise = new Promise(resolve => {
-          loadImages();
+          preload("img/arena1.jpg", "img/123.jpg", "img/heal.png");
         });
         promise.then(xxx());
 
