@@ -521,13 +521,6 @@
         let game = new _game_js__WEBPACK_IMPORTED_MODULE_0__["default"]();
         let myGame = game.create.bind(game);
 
-        /*function loadImages() {
-  let img = new Image();
-  img.src = "./img/arena1.jpg";
-  img.src = "./img/123.jpg";
-  img.src = "./img/heal.png";
-}*/
-
         let images = new Array();
         function preload(...args) {
           for (let i = 0; i < args.length; i++) {
@@ -542,7 +535,80 @@
         }
 
         let promise = new Promise(resolve => {
-          preload("img/arena1.jpg", "img/123.jpg", "img/heal.png");
+          preload(
+            "img/arena1.jpg",
+            "img/arena2.png",
+            "img/arena3.png",
+            "img/arena4.png",
+            "img/heal.png",
+            "img/sword.png",
+            "img/smoke.png",
+            "img/spritePlayer.png",
+            "img/spritePlayerDie.png",
+            "img/spritePlayerFire.png",
+            "img/spritePlayerHeal1.png",
+            "img/spritePlayerHurt.png",
+            "img/monster/die/head/monsterHeadDie1.png",
+            "img/monster/die/head/monsterHeadDie2.png",
+            "img/monster/die/head/monsterHeadDie3.png",
+            "img/monster/die/body/monsterHeadDie1.png",
+            "img/monster/die/body/monsterHeadDie2.png",
+            "img/monster/die/body/monsterHeadDie3.png",
+            "img/monster/die/legs/monsterHeadDie1.png",
+            "img/monster/die/legs/monsterHeadDie2.png",
+            "img/monster/die/legs/monsterHeadDie3.png",
+            "img/monster/fire/head/monsterHeadFire1.png",
+            "img/monster/fire/head/monsterHeadFire2.png",
+            "img/monster/fire/head/monsterHeadFire3.png",
+            "img/monster/fire/body/monsterHeadFire1.png",
+            "img/monster/fire/body/monsterHeadFire2.png",
+            "img/monster/fire/body/monsterHeadFire3.png",
+            "img/monster/fire/legs/monsterHeadFire1.png",
+            "img/monster/fire/legs/monsterHeadFire2.png",
+            "img/monster/fire/legs/monsterHeadFire3.png",
+            "img/monster/hurt/head/monsterHeadHurt1.png",
+            "img/monster/hurt/head/monsterHeadHurt2.png",
+            "img/monster/hurt/head/monsterHeadHurt3.png",
+            "img/monster/hurt/body/monsterHeadHurt1.png",
+            "img/monster/hurt/body/monsterHeadHurt2.png",
+            "img/monster/hurt/body/monsterHeadHurt3.png",
+            "img/monster/hurt/legs/monsterHeadHurt1.png",
+            "img/monster/hurt/legs/monsterHeadHurt2.png",
+            "img/monster/hurt/legs/monsterHeadHurt3.png",
+            "img/monster/idle/head/monsterHeadIdle1.png",
+            "img/monster/idle/head/monsterHeadIdle2.png",
+            "img/monster/idle/head/monsterHeadIdle3.png",
+            "img/monster/idle/body/monsterHeadIdle1.png",
+            "img/monster/idle/body/monsterHeadIdle2.png",
+            "img/monster/idle/body/monsterHeadIdle3.png",
+            "img/monster/idle/legs/monsterHeadIdle1.png",
+            "img/monster/idle/legs/monsterHeadIdle2.png",
+            "img/monster/idle/legs/monsterHeadIdle3.png",
+            "img/capitalstask/belarus.jpg",
+            "img/capitalstask/canada.jpg",
+            "img/capitalstask/germany.jpg",
+            "img/capitalstask/greatbritain.jpg",
+            "img/capitalstask/italy.jpg",
+            "img/capitalstask/lithuania.jpg",
+            "img/capitalstask/spain.jpg",
+            "img/capitalstask/sweden.jpg",
+            "img/capitalstask/usa.png",
+            "img/equationTask/apple.png",
+            "img/equationTask/banana.png",
+            "img/equationTask/coconut.png",
+            "img/redudanttask/bear.jpg",
+            "img/redudanttask/cucumber.jpg",
+            "img/redudanttask/elephant.jpg",
+            "img/redudanttask/ferrari.jpg",
+            "img/redudanttask/lada.jpg",
+            "img/redudanttask/lion.jpg",
+            "img/redudanttask/mersedes.jpg",
+            "img/redudanttask/oranges.jpg",
+            "img/redudanttask/ostrich.jpg",
+            "img/redudanttask/pears.jpg",
+            "img/redudanttask/pinguin.jpg",
+            "img/redudanttask/sinica.jpg"
+          );
         });
         promise.then(xxx());
 
