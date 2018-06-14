@@ -77,6 +77,14 @@ class mylib {
       func();
     }
   }
+
+  static preload(arr) {
+    let images = new Array();
+    for (let i = 0; i < arr.length; i++) {
+      images[i] = new Image();
+      images[i].src = arr[i];
+    }
+  }
 }
 
 export default mylib;
