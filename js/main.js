@@ -93,7 +93,7 @@ let promise = new Promise(resolve => {
     "../../img/redudanttask/pinguin.jpg",
     "../../img/redudanttask/sinica.jpg",
     "../../img/123.jpg"
-  );
+      );
 });
 promise.then(xxx());
 
