@@ -521,6 +521,11 @@
         let game = new _game_js__WEBPACK_IMPORTED_MODULE_0__["default"]();
         let myGame = game.create.bind(game);
 
+        window.onload = function() {
+          document.querySelector(".loading").style.display = "none";
+          document.querySelector(".regPage").style.display = "block";
+        };
+
         regForm.addEventListener("submit", event => {
           event.preventDefault();
           _mylib__WEBPACK_IMPORTED_MODULE_1__["default"].validateForm(
