@@ -176,64 +176,64 @@
         );
         const dictMonster = {
           headsIdle: [
-            "spriteMonsterHeadIdle_first",
-            "spriteMonsterHeadIdle_second",
-            "spriteMonsterHeadIdle_third"
+            "sprite-monster__head_idle_first",
+            "sprite-monster__head_idle_second",
+            "sprite-monster__head_idle_third"
           ],
           bodiesIdle: [
-            "spriteMonsterBodyIdle_first",
-            "spriteMonsterBodyIdle_second",
-            "spriteMonsterBodyIdle_third"
+            "sprite-monster__body_idle_first",
+            "sprite-monster__body_idle_second",
+            "sprite-monster__body_idle_third"
           ],
           legsIdle: [
-            "spriteMonsterLegsIdle_first",
-            "spriteMonsterLegsIdle_second",
-            "spriteMonsterLegsIdle_third"
+            "sprite-monster__legs_idle_first",
+            "sprite-monster__legs_idle_second",
+            "sprite-monster__legs_idle_third"
           ],
           headsFire: [
-            "spriteMonsterHeadFire_first",
-            "spriteMonsterHeadFire_second",
-            "spriteMonsterHeadFire_third"
+            "sprite-monster__head_fire_first",
+            "sprite-monster__head_fire_second",
+            "sprite-monster__head_fire_third"
           ],
           bodiesFire: [
-            "spriteMonsterBodyFire_first",
-            "spriteMonsterBodyFire_second",
-            "spriteMonsterBodyFire_third"
+            "sprite-monster__body_fire_first",
+            "sprite-monster__body_fire_second",
+            "sprite-monster__body_fire_third"
           ],
           legsFire: [
-            "spriteMonsterLegsFire_first",
-            "spriteMonsterLegsFire_second",
-            "spriteMonsterLegsFire_third"
+            "sprite-monster__legs_fire_first",
+            "sprite-monster__legs_fire_second",
+            "sprite-monster__legs_fire_third"
           ],
           headsHurt: [
-            "spriteMonsterHeadHurt_first",
-            "spriteMonsterHeadHurt_second",
-            "spriteMonsterHeadHurt_third"
+            "sprite-monster__head_hurt_first",
+            "sprite-monster__head_hurt_second",
+            "sprite-monster__head_hurt_third"
           ],
           bodiesHurt: [
-            "spriteMonsterBodyHurt_first",
-            "spriteMonsterBodyHurt_second",
-            "spriteMonsterBodyHurt_third"
+            "sprite-monster__body_hurt_first",
+            "sprite-monster__body_hurt_second",
+            "sprite-monster__body_hurt_third"
           ],
           legsHurt: [
-            "spriteMonsterLegsHurt_first",
-            "spriteMonsterLegsHurt_second",
-            "spriteMonsterLegsHurt_third"
+            "sprite-monster__legs_hurt_first",
+            "sprite-monster__legs_hurt_second",
+            "sprite-monster__legs_hurt_third"
           ],
           headsDie: [
-            "spriteMonsterHeadDie_first",
-            "spriteMonsterHeadDie_second",
-            "spriteMonsterHeadDie_third"
+            "sprite-monster__head_die_first",
+            "sprite-monster__head_die_second",
+            "sprite-monster__head_die_third"
           ],
           bodiesDie: [
-            "spriteMonsterBodyDie_first",
-            "spriteMonsterBodyDie_second",
-            "spriteMonsterBodyDie_third"
+            "sprite-monster__body_die_first",
+            "sprite-monster__body_die_second",
+            "sprite-monster__body_die_third"
           ],
           legsDie: [
-            "spriteMonsterLegsDie_first",
-            "spriteMonsterLegsDie_second",
-            "spriteMonsterLegsDie_third"
+            "sprite-monster__legs_die_first",
+            "sprite-monster__legs_die_second",
+            "sprite-monster__legs_die_third"
           ],
 
           firstNames: [
@@ -244,7 +244,11 @@
             "Genrich",
             "Sigizmund",
             "Aslanbek",
-            "Bzdashek"
+            "Bzdashek",
+            "Ernest",
+            "Gans",
+            "Givi",
+            "Zayceslav"
           ],
           secondNames: [
             '"Hriply"',
@@ -252,7 +256,10 @@
             '"Bambula"',
             '"Baklan"',
             '"Brodyaga"',
-            '"Vertuhai"'
+            '"Vertuhai"',
+            '"Aristocrat"',
+            '"Lentyai"',
+            '"Babusya"'
           ],
           thirdNames: [
             "Vonuchkin",
@@ -261,10 +268,14 @@
             "Kakulko",
             "Soplivkin",
             "Gryaznulenko",
-            "Potnyakovich"
+            "Potnyakovich",
+            "Zaperdyak",
+            "Suhozad",
+            "Tryapkin",
+            "Zapadlovsky"
           ],
 
-          backgroundImages: ["arena1", "arena2", "arena3", "arena4"]
+          backgroundImages: ["arena_1", "arena_2", "arena_3", "arena_4"]
         };
 
         const dictTranslateTask = {
@@ -294,7 +305,7 @@
           "img/capitalstask/belarus.jpeg": ["minsk"],
           "img/capitalstask/canada.jpg": ["ottawa", "ottava"],
           "img/capitalstask/germany.jpg": ["berlin"],
-          "img/capitalstask/greatBritain.jpg": ["london"],
+          "img/capitalstask/greatbritain.jpg": ["london"],
           "img/capitalstask/italy.jpg": ["rome", "rim"],
           "img/capitalstask/lithuania.jpg": ["vilnius", "vilnus"],
           "img/capitalstask/sweden.jpg": ["stockholm", "stokholm", "stokgolm"],
@@ -452,8 +463,8 @@
           }
 
           create() {
-            document.querySelector(".regPage").style.display = "none";
-            document.querySelector(".gamePage").style.display = "block";
+            document.querySelector(".reg-page").style.display = "none";
+            document.querySelector(".game-page").style.display = "block";
             const playerName = document.querySelector("input").value;
 
             this.player = new _player__WEBPACK_IMPORTED_MODULE_0__["default"](
@@ -468,13 +479,19 @@
 
             this.spell = new _spell__WEBPACK_IMPORTED_MODULE_2__["default"]();
             this.btnChooseSpell = this.spell.open.bind(this.spell);
-            btnChooseSpell.addEventListener("click", this.btnChooseSpell);
-            document.querySelector(".spells").addEventListener("click", () => {
-              this.spell.chooseSpell(event);
-            });
-            btnAnswer.addEventListener("click", () => {
-              this.setAnswer();
-            });
+            document
+              .getElementById("btn-choose-spell")
+              .addEventListener("click", this.btnChooseSpell);
+            document
+              .querySelector(".modal-window__spell")
+              .addEventListener("click", () => {
+                this.spell.chooseSpell(event);
+              });
+            document
+              .getElementById("btn-answer")
+              .addEventListener("click", () => {
+                this.setAnswer();
+              });
           }
 
           setAnswer() {
@@ -487,8 +504,10 @@
             this.spell.task.answer = document
               .getElementById("answer")
               .value.toString();
-            document.querySelector(".taskPage").style.display = "none";
-            btnChooseSpell.removeEventListener("click", this.btnChooseSpell);
+            document.querySelector(".task-page").style.display = "none";
+            document
+              .getElementById("btn-choose-spell")
+              .removeEventListener("click", this.btnChooseSpell);
             this.spell.cast(this.player, this.monster);
             setTimeout(this.isAlive.bind(this), 2000);
           }
@@ -528,12 +547,14 @@
               this.player.die();
               setTimeout(() => this.finish(), 3000);
             } else {
-              btnChooseSpell.addEventListener("click", this.btnChooseSpell);
+              document
+                .getElementById("btn-choose-spell")
+                .addEventListener("click", this.btnChooseSpell);
             }
           }
 
           nextMonster() {
-            const spriteMonster = document.querySelector(".spriteMonster");
+            const spriteMonster = document.querySelector(".sprite-monster");
             spriteMonster.children[0].classList.remove(
               _dict__WEBPACK_IMPORTED_MODULE_4__["dictMonster"].headsIdle[
                 this.monster.head
@@ -564,12 +585,14 @@
               this.player.startHealth
             );
             this.player.drawHealth();
-            btnChooseSpell.addEventListener("click", this.btnChooseSpell);
+            document
+              .getElementById("btn-choose-spell")
+              .addEventListener("click", this.btnChooseSpell);
           }
 
           finish() {
-            document.querySelector(".gamePage").style.display = "none";
-            document.querySelector(".scoresPage").style.display = "block";
+            document.querySelector(".game-page").style.display = "none";
+            document.querySelector(".scores-page").style.display = "block";
             localStorage.setItem(
               "game" + Date.now(),
               this.player.name + "," + this.player.score
@@ -610,17 +633,19 @@
           _dict__WEBPACK_IMPORTED_MODULE_2__["preloadImages"]
         );
         window.onload = function() {
-          document.querySelector(".loadingPage").style.display = "none";
-          document.querySelector(".regPage").style.display = "block";
+          document.querySelector(".loading-page").style.display = "none";
+          document.querySelector(".reg-page").style.display = "block";
         };
 
-        regForm.addEventListener("submit", event => {
-          event.preventDefault();
-          _mylib__WEBPACK_IMPORTED_MODULE_1__["default"].validateForm(
-            "playerName",
-            myGame
-          );
-        });
+        document
+          .getElementById("reg-form")
+          .addEventListener("submit", event => {
+            event.preventDefault();
+            _mylib__WEBPACK_IMPORTED_MODULE_1__["default"].validateForm(
+              "player-name",
+              myGame
+            );
+          });
 
         /*let audio = new Audio();
 audio.volume = 0.1;
@@ -661,7 +686,7 @@ audio.loop = true;*/
           }
 
           drawMonster() {
-            document.querySelector(".monsterName").innerHTML = this.name;
+            document.querySelector(".monster-name").innerHTML = this.name;
             document.querySelector(".round").innerHTML =
               "round " + (this.score + 1);
             this.drawHealth();
@@ -669,7 +694,7 @@ audio.loop = true;*/
 
             /*add new background and clear the previous*/
             document
-              .querySelector(".gamePage")
+              .querySelector(".game-page")
               .classList.add(
                 _dict__WEBPACK_IMPORTED_MODULE_1__["dictMonster"]
                   .backgroundImages[
@@ -679,7 +704,7 @@ audio.loop = true;*/
                 ]
               );
             document
-              .querySelector(".gamePage")
+              .querySelector(".game-page")
               .classList.remove(
                 _dict__WEBPACK_IMPORTED_MODULE_1__["dictMonster"]
                   .backgroundImages[
@@ -714,21 +739,21 @@ audio.loop = true;*/
 
             /*draw the monster from taken head, body and legs*/
             document
-              .querySelector(".spriteMonsterHeadIdle")
+              .querySelector(".sprite-monster__head_idle")
               .classList.add(
                 _dict__WEBPACK_IMPORTED_MODULE_1__["dictMonster"].headsIdle[
                   this.head
                 ]
               );
             document
-              .querySelector(".spriteMonsterBodyIdle")
+              .querySelector(".sprite-monster__body_idle")
               .classList.add(
                 _dict__WEBPACK_IMPORTED_MODULE_1__["dictMonster"].bodiesIdle[
                   this.body
                 ]
               );
             document
-              .querySelector(".spriteMonsterLegsIdle")
+              .querySelector(".sprite-monster__legs_idle")
               .classList.add(
                 _dict__WEBPACK_IMPORTED_MODULE_1__["dictMonster"].legsIdle[
                   this.legs
@@ -738,10 +763,10 @@ audio.loop = true;*/
 
           /*sets the green line of health and puts a number of health in html*/
           drawHealth() {
-            document.querySelector(".monsterHealthRemain").style.width =
+            document.querySelector(".monster-health__remain").style.width =
               (this.health / this.startHealth) * 100 + "%";
             document.querySelector(
-              ".monsterHealthRemain"
+              ".monster-health__remain"
             ).innerHTML = this.health;
           }
 
@@ -760,38 +785,50 @@ audio.loop = true;*/
           /*removes classes of idle parts of the monster and sets classes of fire parts of the monster*/
           fire() {
             this.audioFire.play();
-            const spriteMonster = document.querySelector(".spriteMonster");
-            spriteMonster.children[0].classList.remove("spriteMonsterHeadIdle");
+            const spriteMonster = document.querySelector(".sprite-monster");
+            spriteMonster.children[0].classList.remove(
+              "sprite-monster__head_idle"
+            );
             spriteMonster.children[0].classList.remove(
               _dict__WEBPACK_IMPORTED_MODULE_1__["dictMonster"].headsIdle[
                 this.head
               ]
             );
-            spriteMonster.children[1].classList.remove("spriteMonsterBodyIdle");
+            spriteMonster.children[1].classList.remove(
+              "sprite-monster__body_idle"
+            );
             spriteMonster.children[1].classList.remove(
               _dict__WEBPACK_IMPORTED_MODULE_1__["dictMonster"].bodiesIdle[
                 this.body
               ]
             );
-            spriteMonster.children[2].classList.remove("spriteMonsterLegsIdle");
+            spriteMonster.children[2].classList.remove(
+              "sprite-monster__legs_idle"
+            );
             spriteMonster.children[2].classList.remove(
               _dict__WEBPACK_IMPORTED_MODULE_1__["dictMonster"].legsIdle[
                 this.legs
               ]
             );
-            spriteMonster.children[0].classList.add("spriteMonsterHeadFire");
+            spriteMonster.children[0].classList.add(
+              "sprite-monster__head_fire"
+            );
             spriteMonster.children[0].classList.add(
               _dict__WEBPACK_IMPORTED_MODULE_1__["dictMonster"].headsFire[
                 this.head
               ]
             );
-            spriteMonster.children[1].classList.add("spriteMonsterBodyFire");
+            spriteMonster.children[1].classList.add(
+              "sprite-monster__body_fire"
+            );
             spriteMonster.children[1].classList.add(
               _dict__WEBPACK_IMPORTED_MODULE_1__["dictMonster"].bodiesFire[
                 this.body
               ]
             );
-            spriteMonster.children[2].classList.add("spriteMonsterLegsFire");
+            spriteMonster.children[2].classList.add(
+              "sprite-monster__legs_fire"
+            );
             spriteMonster.children[2].classList.add(
               _dict__WEBPACK_IMPORTED_MODULE_1__["dictMonster"].legsFire[
                 this.legs
@@ -801,38 +838,50 @@ audio.loop = true;*/
 
           /*removes classes of fire parts of the monster and sets classes of idle parts of the monster*/
           stopFire() {
-            const spriteMonster = document.querySelector(".spriteMonster");
-            spriteMonster.children[0].classList.remove("spriteMonsterHeadFire");
+            const spriteMonster = document.querySelector(".sprite-monster");
+            spriteMonster.children[0].classList.remove(
+              "sprite-monster__head_fire"
+            );
             spriteMonster.children[0].classList.remove(
               _dict__WEBPACK_IMPORTED_MODULE_1__["dictMonster"].headsFire[
                 this.head
               ]
             );
-            spriteMonster.children[1].classList.remove("spriteMonsterBodyFire");
+            spriteMonster.children[1].classList.remove(
+              "sprite-monster__body_fire"
+            );
             spriteMonster.children[1].classList.remove(
               _dict__WEBPACK_IMPORTED_MODULE_1__["dictMonster"].bodiesFire[
                 this.body
               ]
             );
-            spriteMonster.children[2].classList.remove("spriteMonsterLegsFire");
+            spriteMonster.children[2].classList.remove(
+              "sprite-monster__legs_fire"
+            );
             spriteMonster.children[2].classList.remove(
               _dict__WEBPACK_IMPORTED_MODULE_1__["dictMonster"].legsFire[
                 this.legs
               ]
             );
-            spriteMonster.children[0].classList.add("spriteMonsterHeadIdle");
+            spriteMonster.children[0].classList.add(
+              "sprite-monster__head_idle"
+            );
             spriteMonster.children[0].classList.add(
               _dict__WEBPACK_IMPORTED_MODULE_1__["dictMonster"].headsIdle[
                 this.head
               ]
             );
-            spriteMonster.children[1].classList.add("spriteMonsterBodyIdle");
+            spriteMonster.children[1].classList.add(
+              "sprite-monster__body_idle"
+            );
             spriteMonster.children[1].classList.add(
               _dict__WEBPACK_IMPORTED_MODULE_1__["dictMonster"].bodiesIdle[
                 this.body
               ]
             );
-            spriteMonster.children[2].classList.add("spriteMonsterLegsIdle");
+            spriteMonster.children[2].classList.add(
+              "sprite-monster__legs_idle"
+            );
             spriteMonster.children[2].classList.add(
               _dict__WEBPACK_IMPORTED_MODULE_1__["dictMonster"].legsIdle[
                 this.legs
@@ -842,38 +891,50 @@ audio.loop = true;*/
 
           /*removes classes of idle parts of the monster and sets classes of hurt parts of the monster*/
           hurt() {
-            const spriteMonster = document.querySelector(".spriteMonster");
-            spriteMonster.children[0].classList.remove("spriteMonsterHeadIdle");
+            const spriteMonster = document.querySelector(".sprite-monster");
+            spriteMonster.children[0].classList.remove(
+              "sprite-monster__head_idle"
+            );
             spriteMonster.children[0].classList.remove(
               _dict__WEBPACK_IMPORTED_MODULE_1__["dictMonster"].headsIdle[
                 this.head
               ]
             );
-            spriteMonster.children[1].classList.remove("spriteMonsterBodyIdle");
+            spriteMonster.children[1].classList.remove(
+              "sprite-monster__body_idle"
+            );
             spriteMonster.children[1].classList.remove(
               _dict__WEBPACK_IMPORTED_MODULE_1__["dictMonster"].bodiesIdle[
                 this.body
               ]
             );
-            spriteMonster.children[2].classList.remove("spriteMonsterLegsIdle");
+            spriteMonster.children[2].classList.remove(
+              "sprite-monster__legs_idle"
+            );
             spriteMonster.children[2].classList.remove(
               _dict__WEBPACK_IMPORTED_MODULE_1__["dictMonster"].legsIdle[
                 this.legs
               ]
             );
-            spriteMonster.children[0].classList.add("spriteMonsterHeadHurt");
+            spriteMonster.children[0].classList.add(
+              "sprite-monster__head_hurt"
+            );
             spriteMonster.children[0].classList.add(
               _dict__WEBPACK_IMPORTED_MODULE_1__["dictMonster"].headsHurt[
                 this.head
               ]
             );
-            spriteMonster.children[1].classList.add("spriteMonsterBodyHurt");
+            spriteMonster.children[1].classList.add(
+              "sprite-monster__body_hurt"
+            );
             spriteMonster.children[1].classList.add(
               _dict__WEBPACK_IMPORTED_MODULE_1__["dictMonster"].bodiesHurt[
                 this.body
               ]
             );
-            spriteMonster.children[2].classList.add("spriteMonsterLegsHurt");
+            spriteMonster.children[2].classList.add(
+              "sprite-monster__legs_hurt"
+            );
             spriteMonster.children[2].classList.add(
               _dict__WEBPACK_IMPORTED_MODULE_1__["dictMonster"].legsHurt[
                 this.legs
@@ -883,38 +944,50 @@ audio.loop = true;*/
 
           /*removes classes of hurt parts of the monster and sets classes of idle parts of the monster*/
           stopHurt() {
-            const spriteMonster = document.querySelector(".spriteMonster");
-            spriteMonster.children[0].classList.remove("spriteMonsterHeadHurt");
+            const spriteMonster = document.querySelector(".sprite-monster");
+            spriteMonster.children[0].classList.remove(
+              "sprite-monster__head_hurt"
+            );
             spriteMonster.children[0].classList.remove(
               _dict__WEBPACK_IMPORTED_MODULE_1__["dictMonster"].headsHurt[
                 this.head
               ]
             );
-            spriteMonster.children[1].classList.remove("spriteMonsterBodyHurt");
+            spriteMonster.children[1].classList.remove(
+              "sprite-monster__body_hurt"
+            );
             spriteMonster.children[1].classList.remove(
               _dict__WEBPACK_IMPORTED_MODULE_1__["dictMonster"].bodiesHurt[
                 this.body
               ]
             );
-            spriteMonster.children[2].classList.remove("spriteMonsterLegsHurt");
+            spriteMonster.children[2].classList.remove(
+              "sprite-monster__legs_hurt"
+            );
             spriteMonster.children[2].classList.remove(
               _dict__WEBPACK_IMPORTED_MODULE_1__["dictMonster"].legsHurt[
                 this.legs
               ]
             );
-            spriteMonster.children[0].classList.add("spriteMonsterHeadIdle");
+            spriteMonster.children[0].classList.add(
+              "sprite-monster__head_idle"
+            );
             spriteMonster.children[0].classList.add(
               _dict__WEBPACK_IMPORTED_MODULE_1__["dictMonster"].headsIdle[
                 this.head
               ]
             );
-            spriteMonster.children[1].classList.add("spriteMonsterBodyIdle");
+            spriteMonster.children[1].classList.add(
+              "sprite-monster__body_idle"
+            );
             spriteMonster.children[1].classList.add(
               _dict__WEBPACK_IMPORTED_MODULE_1__["dictMonster"].bodiesIdle[
                 this.body
               ]
             );
-            spriteMonster.children[2].classList.add("spriteMonsterLegsIdle");
+            spriteMonster.children[2].classList.add(
+              "sprite-monster__legs_idle"
+            );
             spriteMonster.children[2].classList.add(
               _dict__WEBPACK_IMPORTED_MODULE_1__["dictMonster"].legsIdle[
                 this.legs
@@ -929,38 +1002,44 @@ audio.loop = true;*/
             setTimeout(() => {
               this.audioGrenade.play();
             }, 400);
-            const spriteMonster = document.querySelector(".spriteMonster");
-            spriteMonster.children[0].classList.remove("spriteMonsterHeadIdle");
+            const spriteMonster = document.querySelector(".sprite-monster");
+            spriteMonster.children[0].classList.remove(
+              "sprite-monster__head_idle"
+            );
             spriteMonster.children[0].classList.remove(
               _dict__WEBPACK_IMPORTED_MODULE_1__["dictMonster"].headsIdle[
                 this.head
               ]
             );
-            spriteMonster.children[1].classList.remove("spriteMonsterBodyIdle");
+            spriteMonster.children[1].classList.remove(
+              "sprite-monster__body_idle"
+            );
             spriteMonster.children[1].classList.remove(
               _dict__WEBPACK_IMPORTED_MODULE_1__["dictMonster"].bodiesIdle[
                 this.body
               ]
             );
-            spriteMonster.children[2].classList.remove("spriteMonsterLegsIdle");
+            spriteMonster.children[2].classList.remove(
+              "sprite-monster__legs_idle"
+            );
             spriteMonster.children[2].classList.remove(
               _dict__WEBPACK_IMPORTED_MODULE_1__["dictMonster"].legsIdle[
                 this.legs
               ]
             );
-            spriteMonster.children[0].classList.add("spriteMonsterHeadDie");
+            spriteMonster.children[0].classList.add("sprite-monster__head_die");
             spriteMonster.children[0].classList.add(
               _dict__WEBPACK_IMPORTED_MODULE_1__["dictMonster"].headsDie[
                 this.head
               ]
             );
-            spriteMonster.children[1].classList.add("spriteMonsterBodyDie");
+            spriteMonster.children[1].classList.add("sprite-monster__body_die");
             spriteMonster.children[1].classList.add(
               _dict__WEBPACK_IMPORTED_MODULE_1__["dictMonster"].bodiesDie[
                 this.body
               ]
             );
-            spriteMonster.children[2].classList.add("spriteMonsterLegsDie");
+            spriteMonster.children[2].classList.add("sprite-monster__legs_die");
             spriteMonster.children[2].classList.add(
               _dict__WEBPACK_IMPORTED_MODULE_1__["dictMonster"].legsDie[
                 this.legs
@@ -969,38 +1048,50 @@ audio.loop = true;*/
           }
 
           stopDie() {
-            const spriteMonster = document.querySelector(".spriteMonster");
-            spriteMonster.children[0].classList.remove("spriteMonsterHeadDie");
+            const spriteMonster = document.querySelector(".sprite-monster");
+            spriteMonster.children[0].classList.remove(
+              "sprite-monster__head_die"
+            );
             spriteMonster.children[0].classList.remove(
               _dict__WEBPACK_IMPORTED_MODULE_1__["dictMonster"].headsDie[
                 this.head
               ]
             );
-            spriteMonster.children[1].classList.remove("spriteMonsterBodyDie");
+            spriteMonster.children[1].classList.remove(
+              "sprite-monster__body_die"
+            );
             spriteMonster.children[1].classList.remove(
               _dict__WEBPACK_IMPORTED_MODULE_1__["dictMonster"].bodiesDie[
                 this.body
               ]
             );
-            spriteMonster.children[2].classList.remove("spriteMonsterLegsDie");
+            spriteMonster.children[2].classList.remove(
+              "sprite-monster__legs_die"
+            );
             spriteMonster.children[2].classList.remove(
               _dict__WEBPACK_IMPORTED_MODULE_1__["dictMonster"].legsDie[
                 this.legs
               ]
             );
-            spriteMonster.children[0].classList.add("spriteMonsterHeadIdle");
+            spriteMonster.children[0].classList.add(
+              "sprite-monster__head_idle"
+            );
             spriteMonster.children[0].classList.add(
               _dict__WEBPACK_IMPORTED_MODULE_1__["dictMonster"].headsIdle[
                 this.head
               ]
             );
-            spriteMonster.children[1].classList.add("spriteMonsterBodyIdle");
+            spriteMonster.children[1].classList.add(
+              "sprite-monster__body_idle"
+            );
             spriteMonster.children[1].classList.add(
               _dict__WEBPACK_IMPORTED_MODULE_1__["dictMonster"].bodiesIdle[
                 this.body
               ]
             );
-            spriteMonster.children[2].classList.add("spriteMonsterLegsIdle");
+            spriteMonster.children[2].classList.add(
+              "sprite-monster__legs_idle"
+            );
             spriteMonster.children[2].classList.add(
               _dict__WEBPACK_IMPORTED_MODULE_1__["dictMonster"].legsIdle[
                 this.legs
@@ -1176,16 +1267,16 @@ audio.loop = true;*/
           }
 
           drawPlayer() {
-            document.querySelector(".playerName").innerHTML = this.name;
+            document.querySelector(".player-name").innerHTML = this.name;
             this.drawHealth();
             this.createSounds();
           }
 
           drawHealth() {
-            document.querySelector(".playerHealthRemain").style.width =
+            document.querySelector(".player-health__remain").style.width =
               (this.health / this.startHealth) * 100 + "%";
             document.querySelector(
-              ".playerHealthRemain"
+              ".player-health__remain"
             ).innerHTML = this.health;
           }
 
@@ -1201,66 +1292,66 @@ audio.loop = true;*/
           fire() {
             this.audioFire.play();
             document
-              .querySelector(".spritePlayer")
-              .classList.remove("spritePlayerIdle");
+              .querySelector(".sprite-player")
+              .classList.remove("sprite-player__idle");
             document
-              .querySelector(".spritePlayer")
-              .classList.add("spritePlayerFire");
+              .querySelector(".sprite-player")
+              .classList.add("sprite-player__fire");
           }
 
           stopFire() {
             document
-              .querySelector(".spritePlayer")
-              .classList.remove("spritePlayerFire");
+              .querySelector(".sprite-player")
+              .classList.remove("sprite-player__fire");
             document
-              .querySelector(".spritePlayer")
-              .classList.add("spritePlayerIdle");
+              .querySelector(".sprite-player")
+              .classList.add("sprite-player__idle");
           }
 
           healing() {
             this.audioHeal.play();
             document
-              .querySelector(".spritePlayer")
-              .classList.remove("spritePlayerIdle");
+              .querySelector(".sprite-player")
+              .classList.remove("sprite-player__idle");
             document
-              .querySelector(".spritePlayer")
-              .classList.add("spritePlayerHeal");
+              .querySelector(".sprite-player")
+              .classList.add("sprite-player__heal");
           }
 
           stopHealing() {
             document
-              .querySelector(".spritePlayer")
-              .classList.remove("spritePlayerHeal");
+              .querySelector(".sprite-player")
+              .classList.remove("sprite-player__heal");
             document
-              .querySelector(".spritePlayer")
-              .classList.add("spritePlayerIdle");
+              .querySelector(".sprite-player")
+              .classList.add("sprite-player__idle");
           }
 
           hurt() {
             document
-              .querySelector(".spritePlayer")
-              .classList.remove("spritePlayerIdle");
+              .querySelector(".sprite-player")
+              .classList.remove("sprite-player__idle");
             document
-              .querySelector(".spritePlayer")
-              .classList.add("spritePlayerHurt");
+              .querySelector(".sprite-player")
+              .classList.add("sprite-player__hurt");
           }
 
           stopHurt() {
             document
-              .querySelector(".spritePlayer")
-              .classList.remove("spritePlayerHurt");
+              .querySelector(".sprite-player")
+              .classList.remove("sprite-player__hurt");
             document
-              .querySelector(".spritePlayer")
-              .classList.add("spritePlayerIdle");
+              .querySelector(".sprite-player")
+              .classList.add("sprite-player__idle");
           }
 
           die() {
             document
-              .querySelector(".spritePlayer")
-              .classList.remove("spritePlayerIdle");
+              .querySelector(".sprite-player")
+              .classList.remove("sprite-player__idle");
             document
-              .querySelector(".spritePlayer")
-              .classList.add("spritePlayerDie");
+              .querySelector(".sprite-player")
+              .classList.add("sprite-player__die");
           }
 
           isAlive() {
@@ -1296,14 +1387,14 @@ audio.loop = true;*/
 
           /*opens window with choise of spell type*/
           open() {
-            document.querySelector(".spellPage").style.display = "block";
+            document.querySelector(".spell-page").style.display = "block";
           }
 
           /*sets the chosen spell type into object's property and creates a task*/
           chooseSpell(event) {
             this.kind = event.target.getAttribute("id");
-            document.querySelector(".spellPage").style.display = "none";
-            document.querySelector(".taskPage").style.display = "block";
+            document.querySelector(".spell-page").style.display = "none";
+            document.querySelector(".task-page").style.display = "block";
             this.task = new _task__WEBPACK_IMPORTED_MODULE_0__["default"]();
             this.task.generate();
           }
@@ -1342,12 +1433,12 @@ audio.loop = true;*/
 
           cast(player, monster) {
             switch (this.kind) {
-              case "atackSpell":
+              case "atack-spell":
                 this.task.isSolved()
                   ? this.atack(player, monster)
                   : this.atack(monster, player);
                 break;
-              case "healSpell":
+              case "heal-spell":
                 this.task.isSolved()
                   ? this.heal(player)
                   : this.atack(monster, player);
@@ -1387,7 +1478,7 @@ audio.loop = true;*/
           }
 
           generate() {
-            document.querySelector(".tempMedia").innerHTML = "";
+            document.querySelector(".modal-window__task_media").innerHTML = "";
             document.getElementById("answer").value = "";
             const tasks = [
               this.arithmetics,
@@ -1437,7 +1528,9 @@ audio.loop = true;*/
             }
             this.condition = firstNumber + operation + secondNumber;
             this.solution.push(eval(this.condition).toString());
-            document.querySelector(".taskDescription").innerHTML =
+            document.querySelector(
+              ".modal-window__task_description"
+            ).innerHTML =
               "solve the task:<br>" + this.condition;
           }
 
@@ -1459,7 +1552,9 @@ audio.loop = true;*/
                 this.condition
               ];
 
-            document.querySelector(".taskDescription").innerHTML =
+            document.querySelector(
+              ".modal-window__task_description"
+            ).innerHTML =
               "translate into russian:<br>" + this.condition;
           }
 
@@ -1485,8 +1580,12 @@ audio.loop = true;*/
             const insertingAudio = document.createElement("audio");
             insertingAudio.setAttribute("src", this.condition);
             insertingAudio.setAttribute("controls", "");
-            document.querySelector(".tempMedia").appendChild(insertingAudio);
-            document.querySelector(".taskDescription").innerHTML =
+            document
+              .querySelector(".modal-window__task_media")
+              .appendChild(insertingAudio);
+            document.querySelector(
+              ".modal-window__task_description"
+            ).innerHTML =
               "type the word you heard";
           }
 
@@ -1510,8 +1609,12 @@ audio.loop = true;*/
 
             const insertingFlag = document.createElement("img");
             insertingFlag.setAttribute("src", this.condition);
-            document.querySelector(".tempMedia").appendChild(insertingFlag);
-            document.querySelector(".taskDescription").innerHTML =
+            document
+              .querySelector(".modal-window__task_media")
+              .appendChild(insertingFlag);
+            document.querySelector(
+              ".modal-window__task_description"
+            ).innerHTML =
               "what is the capital of:";
           }
 
@@ -1548,7 +1651,7 @@ audio.loop = true;*/
               ul.appendChild(li);
             }
 
-            document.querySelector(".tempMedia").appendChild(ul);
+            document.querySelector(".modal-window__task_media").appendChild(ul);
 
             $(function() {
               $(".sortable")
@@ -1556,7 +1659,9 @@ audio.loop = true;*/
                 .disableSelection();
             });
 
-            document.querySelector(".taskDescription").innerHTML =
+            document.querySelector(
+              ".modal-window__task_description"
+            ).innerHTML =
               "put the letters in the correct order:";
           }
 
@@ -1581,7 +1686,7 @@ audio.loop = true;*/
                 this.solution
               ];
 
-            const media = document.querySelector(".tempMedia");
+            const media = document.querySelector(".modal-window__task_media");
             for (let i = 0; i < 3; i++) {
               const label = document.createElement("label");
               const input = document.createElement("input");
@@ -1595,7 +1700,9 @@ audio.loop = true;*/
               media.appendChild(label);
             }
 
-            document.querySelector(".taskDescription").innerHTML =
+            document.querySelector(
+              ".modal-window__task_description"
+            ).innerHTML =
               "choose the redundant picture:";
           }
 
@@ -1636,7 +1743,7 @@ audio.loop = true;*/
             fourthResult.innerText = ` = ?`;
 
             const firstRow = document.createElement("div");
-            firstRow.classList.add("equationRow");
+            firstRow.classList.add("equation-row");
             const secondRow = firstRow.cloneNode();
             const thirdRow = firstRow.cloneNode();
             const fourthRow = firstRow.cloneNode();
@@ -1667,7 +1774,7 @@ audio.loop = true;*/
             fourthRow.appendChild(coconut.cloneNode(true));
             fourthRow.appendChild(fourthResult);
 
-            const media = document.querySelector(".tempMedia");
+            const media = document.querySelector(".modal-window__task_media");
             media.appendChild(firstRow);
             media.appendChild(secondRow);
             media.appendChild(thirdRow);
@@ -1675,7 +1782,9 @@ audio.loop = true;*/
 
             this.solution.push(String(appleValue + bananaValue + coconutValue));
 
-            document.querySelector(".taskDescription").innerHTML =
+            document.querySelector(
+              ".modal-window__task_description"
+            ).innerHTML =
               "solve the equation:";
           }
 

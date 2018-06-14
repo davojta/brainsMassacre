@@ -1,17 +1,17 @@
-.arena1 {
-  background-image: url("../img/arena1.jpg");
+.arena_1 {
+  background-image: url(../img/arena1.jpg);
 }
-.arena2 {
-  background-image: url("../img/arena2.png");
+.arena_2 {
+  background-image: url(../img/arena2.png);
 }
-.arena3 {
-  background-image: url("../img/arena3.png");
+.arena_3 {
+  background-image: url(../img/arena3.png);
 }
-.arena4 {
-  background-image: url("../img/arena4.png");
+.arena_4 {
+  background-image: url(../img/arena4.png);
 }
 
-.spritePlayer {
+.sprite-player {
   position: absolute;
   left: 10vw;
   top: 50vh;
@@ -23,32 +23,32 @@
   -webkit-animation-timing-function: linear;
 }
 
-.spritePlayerIdle {
+.sprite-player__idle {
   background: url(../img/spritePlayer.png) no-repeat 0 0;
   -webkit-animation-name: sprite8Frames;
 }
 
-.spritePlayerFire {
+.sprite-player__fire {
   background: url(../img/spritePlayerFire.png) no-repeat 0 0;
   -webkit-animation-name: sprite5Frames;
 }
 
-.spritePlayerHeal {
+.sprite-player__heal {
   background: url(../img/spritePlayerHeal1.png) no-repeat 0 0;
   -webkit-animation-name: sprite5Frames;
 }
 
-.spritePlayerHurt {
+.sprite-player__hurt {
   background: url(../img/spritePlayerHurt.png) no-repeat 0 0;
   -webkit-animation-name: sprite6Frames;
 }
 
-.spritePlayerDie {
+.sprite-player__die {
   background: url(../img/spritePlayerDie.png) no-repeat 0 0;
   -webkit-animation-name: sprite7Frames;
 }
 
-.spriteMonster {
+.sprite-monster {
   position: absolute;
   right: 10vw;
   top: 50vh;
@@ -56,58 +56,58 @@
   transform: scale(1.5);
 }
 
-.spriteMonster > div {
+.sprite-monster > div {
   -webkit-animation-duration: 500ms;
   -webkit-animation-iteration-count: infinite;
   -webkit-animation-timing-function: linear;
 }
 
-.spriteMonsterHeadIdle {
+.sprite-monster__head_idle {
   height: 101px;
   -webkit-animation-name: sprite8Frames;
 }
 
-.spriteMonsterBodyIdle {
+.sprite-monster__body_idle {
   height: 100px;
   -webkit-animation-name: sprite8Frames;
 }
 
-.spriteMonsterLegsIdle {
+.sprite-monster__legs_idle {
   height: 49px;
   -webkit-animation-name: sprite8Frames;
 }
 
-.spriteMonsterHeadFire {
+.sprite-monster__head_fire {
   height: 101px;
   -webkit-animation-name: sprite5Frames;
 }
 
-.spriteMonsterBodyFire {
+.sprite-monster__body_fire {
   height: 102px;
   -webkit-animation-name: sprite5Frames;
 }
 
-.spriteMonsterLegsFire {
+.sprite-monster__legs_fire {
   height: 47px;
   -webkit-animation-name: sprite5Frames;
 }
 
-.spriteMonsterHeadHurt {
+.sprite-monster__head_hurt {
   height: 96px;
   -webkit-animation-name: sprite6Frames;
 }
 
-.spriteMonsterBodyHurt {
+.sprite-monster__body_hurt {
   height: 103px;
   -webkit-animation-name: sprite6Frames;
 }
 
-.spriteMonsterLegsHurt {
+.sprite-monster__legs_hurt {
   height: 49px;
   -webkit-animation-name: sprite6Frames;
 }
 
-.spriteMonsterHeadDie {
+.sprite-monster__head_die {
   margin-bottom: -1px;
   height: 98px;
   -webkit-animation-name: sprite20Frames;
@@ -115,14 +115,14 @@
   -webkit-animation-iteration-count: 1 !important;
 }
 
-.spriteMonsterBodyDie {
+.sprite-monster__body_die {
   height: 108px;
   -webkit-animation-name: sprite20Frames;
   -webkit-animation-duration: 2000ms !important;
   -webkit-animation-iteration-count: 1 !important;
 }
 
-.spriteMonsterLegsDie {
+.sprite-monster__legs_die {
   margin-top: -2px;
   height: 47px;
   -webkit-animation-name: sprite20Frames;
@@ -130,115 +130,112 @@
   -webkit-animation-iteration-count: 1 !important;
 }
 
-.spriteMonsterHeadIdle_first {
+.sprite-monster__head_idle_first {
   background: url(../img/monster/idle/heads/monsterHeadIdle1.png) no-repeat 0 0;
 }
-.spriteMonsterHeadIdle_second {
+.sprite-monster__head_idle_second {
   background: url(../img/monster/idle/heads/monsterHeadIdle2.png) no-repeat 0 0;
 }
-.spriteMonsterHeadIdle_third {
+.sprite-monster__head_idle_third {
   background: url(../img/monster/idle/heads/monsterHeadIdle3.png) no-repeat 0 0;
 }
-.spriteMonsterBodyIdle_first {
+.sprite-monster__body_idle_first {
   background: url(../img/monster/idle/bodies/monsterBodyIdle1.png) no-repeat 0 0;
 }
-.spriteMonsterBodyIdle_second {
+.sprite-monster__body_idle_second {
   background: url(../img/monster/idle/bodies/monsterBodyIdle2.png) no-repeat 0 0;
 }
-.spriteMonsterBodyIdle_third {
+.sprite-monster__body_idle_third {
   background: url(../img/monster/idle/bodies/monsterBodyIdle3.png) no-repeat 0 0;
 }
-.spriteMonsterLegsIdle_first {
+.sprite-monster__legs_idle_first {
   background: url(../img/monster/idle/legs/monsterLegsIdle1.png) no-repeat 0 0;
 }
-.spriteMonsterLegsIdle_second {
+.sprite-monster__legs_idle_second {
   background: url(../img/monster/idle/legs/monsterLegsIdle2.png) no-repeat 0 0;
 }
-.spriteMonsterLegsIdle_third {
+.sprite-monster__legs_idle_third {
   background: url(../img/monster/idle/legs/monsterLegsIdle3.png) no-repeat 0 0;
 }
-
-.spriteMonsterHeadFire_first {
+.sprite-monster__head_fire_first {
   background: url(../img/monster/fire/head/monsterHeadFire1.png) no-repeat 0 0;
 }
-.spriteMonsterHeadFire_second {
+.sprite-monster__head_fire_second {
   background: url(../img/monster/fire/head/monsterHeadFire2.png) no-repeat 0 0;
 }
-.spriteMonsterHeadFire_third {
+.sprite-monster__head_fire_third {
   background: url(../img/monster/fire/head/monsterHeadFire3.png) no-repeat 0 0;
 }
-.spriteMonsterBodyFire_first {
+.sprite-monster__body_fire_first {
   background: url(../img/monster/fire/body/monsterBodyFire1.png) no-repeat 0 0;
 }
-.spriteMonsterBodyFire_second {
+.sprite-monster__body_fire_second {
   background: url(../img/monster/fire/body/monsterBodyFire2.png) no-repeat 0 0;
 }
-.spriteMonsterBodyFire_third {
+.sprite-monster__body_fire_third {
   background: url(../img/monster/fire/body/monsterBodyFire3.png) no-repeat 0 0;
 }
-.spriteMonsterLegsFire_first {
+.sprite-monster__legs_fire_first {
   background: url(../img/monster/fire/legs/monsterLegsFire1.png) no-repeat 0 0;
 }
-.spriteMonsterLegsFire_second {
+.sprite-monster__legs_fire_second {
   background: url(../img/monster/fire/legs/monsterLegsFire2.png) no-repeat 0 0;
 }
-.spriteMonsterLegsFire_third {
+.sprite-monster__legs_fire_third {
   background: url(../img/monster/fire/legs/monsterLegsFire3.png) no-repeat 0 0;
 }
-
-.spriteMonsterHeadHurt_first {
+.sprite-monster__head_hurt_first {
   background: url(../img/monster/hurt/head/monsterHeadHurt1.png) no-repeat 0 0;
 }
-.spriteMonsterHeadHurt_second {
+.sprite-monster__head_hurt_second {
   background: url(../img/monster/hurt/head/monsterHeadHurt2.png) no-repeat 0 0;
 }
-.spriteMonsterHeadHurt_third {
+.sprite-monster__head_hurt_third {
   background: url(../img/monster/hurt/head/monsterHeadHurt3.png) no-repeat 0 0;
 }
-.spriteMonsterBodyHurt_first {
+.sprite-monster__body_hurt_first {
   background: url(../img/monster/hurt/body/monsterBodyHurt1.png) no-repeat 0 0;
 }
-.spriteMonsterBodyHurt_second {
+.sprite-monster__body_hurt_second {
   background: url(../img/monster/hurt/body/monsterBodyHurt2.png) no-repeat 0 0;
 }
-.spriteMonsterBodyHurt_third {
+.sprite-monster__body_hurt_third {
   background: url(../img/monster/hurt/body/monsterBodyHurt3.png) no-repeat 0 0;
 }
-.spriteMonsterLegsHurt_first {
+.sprite-monster__legs_hurt_first {
   background: url(../img/monster/hurt/legs/monsterLegsHurt1.png) no-repeat 0 0;
 }
-.spriteMonsterLegsHurt_second {
+.sprite-monster__legs_hurt_second {
   background: url(../img/monster/hurt/legs/monsterLegsHurt2.png) no-repeat 0 0;
 }
-.spriteMonsterLegsHurt_third {
+.sprite-monster__legs_hurt_third {
   background: url(../img/monster/hurt/legs/monsterLegsHurt3.png) no-repeat 0 0;
 }
-
-.spriteMonsterHeadDie_first {
+.sprite-monster__head_die_first {
   background: url(../img/monster/die/head/monsterHeadDie1.png) no-repeat 0 0;
 }
-.spriteMonsterHeadDie_second {
+.sprite-monster__head_die_second {
   background: url(../img/monster/die/head/monsterHeadDie2.png) no-repeat 0 0;
 }
-.spriteMonsterHeadDie_third {
+.sprite-monster__head_die_third {
   background: url(../img/monster/die/head/monsterHeadDie3.png) no-repeat 0 0;
 }
-.spriteMonsterBodyDie_first {
+.sprite-monster__body_die_first {
   background: url(../img/monster/die/body/monsterBodyDie1.png) no-repeat 0 0;
 }
-.spriteMonsterBodyDie_second {
+.sprite-monster__body_die_second {
   background: url(../img/monster/die/body/monsterBodyDie2.png) no-repeat 0 0;
 }
-.spriteMonsterBodyDie_third {
+.sprite-monster__body_die_third {
   background: url(../img/monster/die/body/monsterBodyDie3.png) no-repeat 0 0;
 }
-.spriteMonsterLegsDie_first {
+.sprite-monster__legs_die_first {
   background: url(../img/monster/die/legs/monsterLegsDie1.png) no-repeat 0 0;
 }
-.spriteMonsterLegsDie_second {
+.sprite-monster__legs_die_second {
   background: url(../img/monster/die/legs/monsterLegsDie2.png) no-repeat 0 0;
 }
-.spriteMonsterLegsDie_third {
+.sprite-monster__legs_die_third {
   background: url(../img/monster/die/legs/monsterLegsDie3.png) no-repeat 0 0;
 }
 
@@ -542,5 +539,69 @@
   }
   100% {
     background-position: -6270px 0;
+  }
+}
+
+.spinner {
+  width: auto;
+  height: 100px;
+  background-image: url(../img/spinner.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  animation-duration: 1500ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-name: spin;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(45deg);
+  }
+  12.5% {
+    transform: rotate(45deg);
+  }
+  12.501% {
+    transform: rotate(90deg);
+  }
+  25% {
+    transform: rotate(90deg);
+  }
+  25.001% {
+    transform: rotate(135deg);
+  }
+  37.5% {
+    transform: rotate(135deg);
+  }
+  37.501% {
+    transform: rotate(180deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  50.001% {
+    transform: rotate(225deg);
+  }
+  62.5% {
+    transform: rotate(225deg);
+  }
+  62.501% {
+    transform: rotate(270deg);
+  }
+  75% {
+    transform: rotate(270deg);
+  }
+  75.001% {
+    transform: rotate(315deg);
+  }
+  87.5% {
+    transform: rotate(315deg);
+  }
+  87.501% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }

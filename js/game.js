@@ -13,8 +13,8 @@ class Game {
   }
 
   create() {
-    document.querySelector(".regPage").style.display = "none";
-    document.querySelector(".gamePage").style.display = "block";
+    document.querySelector(".reg-page").style.display = "none";
+    document.querySelector(".game-page").style.display = "block";
     const playerName = document.querySelector("input").value;
 
     this.player = new Player(playerName);
@@ -25,11 +25,15 @@ class Game {
 
     this.spell = new Spell();
     this.btnChooseSpell = this.spell.open.bind(this.spell);
-    btnChooseSpell.addEventListener("click", this.btnChooseSpell);
-    document.querySelector(".spells").addEventListener("click", () => {
-      this.spell.chooseSpell(event);
-    });
-    btnAnswer.addEventListener("click", () => {
+    document
+      .getElementById("btn-choose-spell")
+      .addEventListener("click", this.btnChooseSpell);
+    document
+      .querySelector(".modal-window__spell")
+      .addEventListener("click", () => {
+        this.spell.chooseSpell(event);
+      });
+    document.getElementById("btn-answer").addEventListener("click", () => {
       this.setAnswer();
     });
   }
@@ -42,8 +46,10 @@ class Game {
       this.setRedudantAnswer();
     }
     this.spell.task.answer = document.getElementById("answer").value.toString();
-    document.querySelector(".taskPage").style.display = "none";
-    btnChooseSpell.removeEventListener("click", this.btnChooseSpell);
+    document.querySelector(".task-page").style.display = "none";
+    document
+      .getElementById("btn-choose-spell")
+      .removeEventListener("click", this.btnChooseSpell);
     this.spell.cast(this.player, this.monster);
     setTimeout(this.isAlive.bind(this), 2000);
   }
@@ -81,12 +87,14 @@ class Game {
       this.player.die();
       setTimeout(() => this.finish(), 3000);
     } else {
-      btnChooseSpell.addEventListener("click", this.btnChooseSpell);
+      document
+        .getElementById("btn-choose-spell")
+        .addEventListener("click", this.btnChooseSpell);
     }
   }
 
   nextMonster() {
-    const spriteMonster = document.querySelector(".spriteMonster");
+    const spriteMonster = document.querySelector(".sprite-monster");
     spriteMonster.children[0].classList.remove(
       dictMonster.headsIdle[this.monster.head]
     );
@@ -105,12 +113,14 @@ class Game {
       this.player.startHealth
     );
     this.player.drawHealth();
-    btnChooseSpell.addEventListener("click", this.btnChooseSpell);
+    document
+      .getElementById("btn-choose-spell")
+      .addEventListener("click", this.btnChooseSpell);
   }
 
   finish() {
-    document.querySelector(".gamePage").style.display = "none";
-    document.querySelector(".scoresPage").style.display = "block";
+    document.querySelector(".game-page").style.display = "none";
+    document.querySelector(".scores-page").style.display = "block";
     localStorage.setItem(
       "game" + Date.now(),
       this.player.name + "," + this.player.score

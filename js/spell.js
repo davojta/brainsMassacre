@@ -9,14 +9,14 @@ class Spell {
 
   /*opens window with choise of spell type*/
   open() {
-    document.querySelector(".spellPage").style.display = "block";
+    document.querySelector(".spell-page").style.display = "block";
   }
 
   /*sets the chosen spell type into object's property and creates a task*/
   chooseSpell(event) {
     this.kind = event.target.getAttribute("id");
-    document.querySelector(".spellPage").style.display = "none";
-    document.querySelector(".taskPage").style.display = "block";
+    document.querySelector(".spell-page").style.display = "none";
+    document.querySelector(".task-page").style.display = "block";
     this.task = new Task();
     this.task.generate();
   }
@@ -47,12 +47,12 @@ class Spell {
 
   cast(player, monster) {
     switch (this.kind) {
-      case "atackSpell":
+      case "atack-spell":
         this.task.isSolved()
           ? this.atack(player, monster)
           : this.atack(monster, player);
         break;
-      case "healSpell":
+      case "heal-spell":
         this.task.isSolved() ? this.heal(player) : this.atack(monster, player);
         break;
       default:
