@@ -4,7 +4,8 @@ import {
   dictListeningTask,
   dictCapitalsTask,
   dictSortTask,
-  dictRedundantTask
+  dictRedundantTask,
+  dictTriangleTask
 } from "./dict";
 
 class Task {
@@ -25,7 +26,8 @@ class Task {
       this.capitals,
       this.sort,
       this.redundant,
-      this.equation
+      this.equation,
+      this.triangle
     ];
     const currentTask = mylib.getRandomArrayElement(tasks).bind(this);
     currentTask();
@@ -235,6 +237,49 @@ class Task {
 
     document.querySelector(".modal-window__task_description").innerHTML =
       "solve the equation:";
+  }
+
+  triangle() {
+    this.type = "triangle";
+    let [firstNumber, secondNumber, result] = mylib.getRandomArrayElement(
+      dictTriangleTask
+    );
+
+    this.solution.push(result.toString());
+
+    const div = document.createElement("div");
+    div.classList.add("container-triangle");
+    const image = document.createElement("img");
+    image.classList.add("image-triangle");
+    image.setAttribute("src", "img/triangle.png");
+
+    const firstCathette = document.createElement("h2");
+    const secondCathette = document.createElement("h2");
+    firstCathette.classList.add("first-cathette");
+    secondCathette.classList.add("second-cathette");
+    firstCathette.innerText = secondNumber;
+    secondCathette.innerText = firstNumber;
+
+    div.appendChild(image);
+    div.appendChild(firstCathette);
+    div.appendChild(secondCathette);
+
+    document.querySelector(".modal-window__task_media").appendChild(div);
+    document.querySelector(".modal-window__task_description").innerHTML =
+      "find x";
+
+    image.addEventListener("click", e => {
+      if (
+        e.offsetX > 125 &&
+        e.offsetX < 145 &&
+        e.offsetY > 70 &&
+        e.offsetY < 90
+      ) {
+        image.setAttribute("src", "img/triangle1.png");
+        document.getElementById("answer").style.display = "none";
+        document.getElementById("answer").value = this.solution[0];
+      }
+    });
   }
 
   isSolved() {

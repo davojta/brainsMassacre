@@ -121,7 +121,7 @@
       /*!********************!*\
   !*** ./js/dict.js ***!
   \********************/
-      /*! exports provided: dictMonster, dictTranslateTask, dictListeningTask, dictCapitalsTask, dictSortTask, dictRedundantTask, preloadImages */
+      /*! exports provided: dictMonster, dictTranslateTask, dictListeningTask, dictCapitalsTask, dictSortTask, dictRedundantTask, dictTriangleTask, preloadImages */
       /***/ function(module, __webpack_exports__, __webpack_require__) {
         "use strict";
         __webpack_require__.r(__webpack_exports__);
@@ -165,6 +165,13 @@
           "dictRedundantTask",
           function() {
             return dictRedundantTask;
+          }
+        );
+        /* harmony export (binding) */ __webpack_require__.d(
+          __webpack_exports__,
+          "dictTriangleTask",
+          function() {
+            return dictTriangleTask;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
@@ -352,6 +359,16 @@
           ]
         };
 
+        const dictTriangleTask = [
+          [3, 4, 5],
+          [5, 12, 13],
+          [8, 15, 17],
+          [7, 24, 25],
+          [20, 21, 29],
+          [12, 35, 37],
+          [9, 40, 41]
+        ];
+
         const preloadImages = [
           "./img/arena1.jpg",
           "./img/arena2.png",
@@ -424,7 +441,9 @@
           "./img/redudanttask/ostrich.jpg",
           "./img/redudanttask/pears.jpg",
           "./img/redudanttask/pinguin.jpg",
-          "./img/redudanttask/sinica.jpg"
+          "./img/redudanttask/sinica.jpg",
+          "./img/triangle.png",
+          "./img/triangle1.png"
         ];
 
         /***/
@@ -504,6 +523,7 @@
             this.spell.task.answer = document
               .getElementById("answer")
               .value.toString();
+            document.getElementById("answer").style.display = "inline-block";
             document.querySelector(".task-page").style.display = "none";
             document
               .getElementById("btn-choose-spell")
@@ -519,7 +539,6 @@
               ans += item.innerText;
             });
             document.getElementById("answer").value = ans;
-            document.getElementById("answer").style.display = "inline-block";
           }
 
           setRedudantAnswer() {
@@ -531,11 +550,9 @@
               i => i.checked
             )[0];
             if (chosenInput === undefined) {
-              document.getElementById("answer").style.display = "inline-block";
               return false;
             }
             document.getElementById("answer").value = chosenInput.value;
-            document.getElementById("answer").style.display = "inline-block";
           }
 
           isAlive() {
@@ -1487,7 +1504,8 @@ audio.loop = true;*/
               this.capitals,
               this.sort,
               this.redundant,
-              this.equation
+              this.equation,
+              this.triangle
             ];
             const currentTask = _mylib__WEBPACK_IMPORTED_MODULE_0__["default"]
               .getRandomArrayElement(tasks)
@@ -1786,6 +1804,59 @@ audio.loop = true;*/
               ".modal-window__task_description"
             ).innerHTML =
               "solve the equation:";
+          }
+
+          triangle() {
+            this.type = "triangle";
+            let [
+              firstNumber,
+              secondNumber,
+              result
+            ] = _mylib__WEBPACK_IMPORTED_MODULE_0__[
+              "default"
+            ].getRandomArrayElement(
+              _dict__WEBPACK_IMPORTED_MODULE_1__["dictTriangleTask"]
+            );
+
+            this.solution.push(result.toString());
+
+            const div = document.createElement("div");
+            div.classList.add("container-triangle");
+            const image = document.createElement("img");
+            image.classList.add("image-triangle");
+            image.setAttribute("src", "img/triangle.png");
+
+            const firstCathette = document.createElement("h2");
+            const secondCathette = document.createElement("h2");
+            firstCathette.classList.add("first-cathette");
+            secondCathette.classList.add("second-cathette");
+            firstCathette.innerText = secondNumber;
+            secondCathette.innerText = firstNumber;
+
+            div.appendChild(image);
+            div.appendChild(firstCathette);
+            div.appendChild(secondCathette);
+
+            document
+              .querySelector(".modal-window__task_media")
+              .appendChild(div);
+            document.querySelector(
+              ".modal-window__task_description"
+            ).innerHTML =
+              "find x";
+
+            image.addEventListener("click", e => {
+              if (
+                e.offsetX > 125 &&
+                e.offsetX < 145 &&
+                e.offsetY > 70 &&
+                e.offsetY < 90
+              ) {
+                image.setAttribute("src", "img/triangle1.png");
+                document.getElementById("answer").style.display = "none";
+                document.getElementById("answer").value = this.solution[0];
+              }
+            });
           }
 
           isSolved() {

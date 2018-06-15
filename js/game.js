@@ -46,6 +46,7 @@ class Game {
       this.setRedudantAnswer();
     }
     this.spell.task.answer = document.getElementById("answer").value.toString();
+    document.getElementById("answer").style.display = "inline-block";
     document.querySelector(".task-page").style.display = "none";
     document
       .getElementById("btn-choose-spell")
@@ -61,7 +62,6 @@ class Game {
       ans += item.innerText;
     });
     document.getElementById("answer").value = ans;
-    document.getElementById("answer").style.display = "inline-block";
   }
 
   setRedudantAnswer() {
@@ -71,11 +71,9 @@ class Game {
       i => i.checked
     )[0];
     if (chosenInput === undefined) {
-      document.getElementById("answer").style.display = "inline-block";
       return false;
     }
     document.getElementById("answer").value = chosenInput.value;
-    document.getElementById("answer").style.display = "inline-block";
   }
 
   isAlive() {

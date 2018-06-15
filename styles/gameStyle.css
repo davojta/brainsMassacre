@@ -238,7 +238,7 @@ button {
 .sortable li {
   text-align: center;
   display: inline-block;
-  background-color: #ffc2db;
+  background-color: #f2ce0c;
   font-size: 30px;
   padding: 20px 0;
   width: 65px;
@@ -294,4 +294,29 @@ td {
 
 tr {
   margin: 5px auto;
+}
+
+.container-triangle {
+  position: relative;
+  width: 350px;
+  height: 250px;
+  margin: auto;
+}
+
+.image-triangle {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.first-cathette {
+  position: absolute;
+  bottom: 0;
+  left: 140px;
+}
+
+.second-cathette {
+  position: absolute;
+  top: 90px;
+  right: 0;
 }
