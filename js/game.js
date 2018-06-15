@@ -85,7 +85,7 @@ class Game {
       setTimeout(() => this.nextMonster(), 2000);
     } else if (!this.player.isAlive()) {
       this.player.die();
-      setTimeout(() => this.finish(), 3000);
+      setTimeout(() => this.finish(), 2000);
     } else {
       document
         .getElementById("btn-choose-spell")
