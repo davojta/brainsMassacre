@@ -13,6 +13,14 @@ class mylib {
   static createHighscoresTable() {
     let recordsArray = mylib.getHighscores();
     let recordsTable = document.querySelector("table");
+    let headerRow = document.createElement("tr");
+    let headerName = document.createElement("th");
+    let headerScore = document.createElement("th");
+    headerName.innerText = "Name";
+    headerScore.innerText = "Score";
+    headerRow.appendChild(headerName);
+    headerRow.appendChild(headerScore);
+    recordsTable.appendChild(headerRow);
     for (let i = 0; i < recordsArray.length; i++) {
       let tableRow = document.createElement("tr");
       let playerName = document.createElement("td");

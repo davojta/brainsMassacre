@@ -121,7 +121,7 @@
       /*!********************!*\
   !*** ./js/dict.js ***!
   \********************/
-      /*! exports provided: dictMonster, dictTranslateTask, dictListeningTask, dictCapitalsTask, dictSortTask, dictRedundantTask, preloadImages */
+      /*! exports provided: dictMonster, dictTranslateTask, dictListeningTask, dictCapitalsTask, dictSortTask, dictRedundantTask, dictTriangleTask, preloadImages */
       /***/ function(module, __webpack_exports__, __webpack_require__) {
         "use strict";
         __webpack_require__.r(__webpack_exports__);
@@ -165,6 +165,13 @@
           "dictRedundantTask",
           function() {
             return dictRedundantTask;
+          }
+        );
+        /* harmony export (binding) */ __webpack_require__.d(
+          __webpack_exports__,
+          "dictTriangleTask",
+          function() {
+            return dictTriangleTask;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
@@ -352,6 +359,16 @@
           ]
         };
 
+        const dictTriangleTask = [
+          [3, 4, 5],
+          [5, 12, 13],
+          [8, 15, 17],
+          [7, 24, 25],
+          [20, 21, 29],
+          [12, 35, 37],
+          [9, 40, 41]
+        ];
+
         const preloadImages = [
           "./img/arena1.jpg",
           "./img/arena2.png",
@@ -424,7 +441,9 @@
           "./img/redudanttask/ostrich.jpg",
           "./img/redudanttask/pears.jpg",
           "./img/redudanttask/pinguin.jpg",
-          "./img/redudanttask/sinica.jpg"
+          "./img/redudanttask/sinica.jpg",
+          "./img/triangle.png",
+          "./img/triangle1.png"
         ];
 
         /***/
@@ -464,6 +483,7 @@
 
           create() {
             document.querySelector(".reg-page").style.display = "none";
+            document.querySelector(".scores-page").style.display = "none";
             document.querySelector(".game-page").style.display = "block";
             const playerName = document.querySelector("input").value;
 
@@ -482,16 +502,6 @@
             document
               .getElementById("btn-choose-spell")
               .addEventListener("click", this.btnChooseSpell);
-            document
-              .querySelector(".modal-window__spell")
-              .addEventListener("click", () => {
-                this.spell.chooseSpell(event);
-              });
-            document
-              .getElementById("btn-answer")
-              .addEventListener("click", () => {
-                this.setAnswer();
-              });
           }
 
           setAnswer() {
@@ -504,6 +514,7 @@
             this.spell.task.answer = document
               .getElementById("answer")
               .value.toString();
+            document.getElementById("answer").style.display = "inline-block";
             document.querySelector(".task-page").style.display = "none";
             document
               .getElementById("btn-choose-spell")
@@ -519,7 +530,6 @@
               ans += item.innerText;
             });
             document.getElementById("answer").value = ans;
-            document.getElementById("answer").style.display = "inline-block";
           }
 
           setRedudantAnswer() {
@@ -531,11 +541,9 @@
               i => i.checked
             )[0];
             if (chosenInput === undefined) {
-              document.getElementById("answer").style.display = "inline-block";
               return false;
             }
             document.getElementById("answer").value = chosenInput.value;
-            document.getElementById("answer").style.display = "inline-block";
           }
 
           isAlive() {
@@ -545,7 +553,7 @@
               setTimeout(() => this.nextMonster(), 2000);
             } else if (!this.player.isAlive()) {
               this.player.die();
-              setTimeout(() => this.finish(), 3000);
+              setTimeout(() => this.finish(), 2000);
             } else {
               document
                 .getElementById("btn-choose-spell")
@@ -597,9 +605,49 @@
               "game" + Date.now(),
               this.player.name + "," + this.player.score
             );
+            this.reset();
             _mylib__WEBPACK_IMPORTED_MODULE_3__[
               "default"
             ].createHighscoresTable();
+          }
+
+          reset() {
+            document
+              .querySelector(".sprite-player")
+              .classList.remove("sprite-player__die");
+            document
+              .querySelector(".sprite-player")
+              .classList.add("sprite-player__idle");
+            const spriteMonster = document.querySelector(".sprite-monster");
+            spriteMonster.children[0].classList.remove(
+              _dict__WEBPACK_IMPORTED_MODULE_4__["dictMonster"].headsIdle[
+                this.monster.head
+              ]
+            );
+            spriteMonster.children[1].classList.remove(
+              _dict__WEBPACK_IMPORTED_MODULE_4__["dictMonster"].bodiesIdle[
+                this.monster.body
+              ]
+            );
+            spriteMonster.children[2].classList.remove(
+              _dict__WEBPACK_IMPORTED_MODULE_4__["dictMonster"].legsIdle[
+                this.monster.legs
+              ]
+            );
+            document
+              .getElementById("btn-choose-spell")
+              .removeEventListener("click", this.btnChooseSpell);
+            document
+              .querySelector(".game-page")
+              .classList.remove(
+                _dict__WEBPACK_IMPORTED_MODULE_4__["dictMonster"]
+                  .backgroundImages[
+                  this.monster.score %
+                    _dict__WEBPACK_IMPORTED_MODULE_4__["dictMonster"]
+                      .backgroundImages.length
+                ]
+              );
+            document.querySelector("table").innerHTML = "";
           }
         }
 
@@ -647,8 +695,24 @@
             );
           });
 
+        document
+          .getElementById("btn-new-game")
+          .addEventListener("click", () => {
+            game.create();
+          });
+
+        document
+          .querySelector(".modal-window__spell")
+          .addEventListener("click", () => {
+            game.spell.chooseSpell(event);
+          });
+
+        document.getElementById("btn-answer").addEventListener("click", () => {
+          game.setAnswer();
+        });
+
         /*let audio = new Audio();
-audio.volume = 0.1;
+audio.volume = 0.03;
 audio.src = "./audio/soundtrack.mp3";
 audio.autoplay = true;
 audio.loop = true;*/
@@ -1167,6 +1231,14 @@ audio.loop = true;*/
           static createHighscoresTable() {
             let recordsArray = mylib.getHighscores();
             let recordsTable = document.querySelector("table");
+            let headerRow = document.createElement("tr");
+            let headerName = document.createElement("th");
+            let headerScore = document.createElement("th");
+            headerName.innerText = "Name";
+            headerScore.innerText = "Score";
+            headerRow.appendChild(headerName);
+            headerRow.appendChild(headerScore);
+            recordsTable.appendChild(headerRow);
             for (let i = 0; i < recordsArray.length; i++) {
               let tableRow = document.createElement("tr");
               let playerName = document.createElement("td");
@@ -1487,7 +1559,8 @@ audio.loop = true;*/
               this.capitals,
               this.sort,
               this.redundant,
-              this.equation
+              this.equation,
+              this.triangle
             ];
             const currentTask = _mylib__WEBPACK_IMPORTED_MODULE_0__["default"]
               .getRandomArrayElement(tasks)
@@ -1786,6 +1859,59 @@ audio.loop = true;*/
               ".modal-window__task_description"
             ).innerHTML =
               "solve the equation:";
+          }
+
+          triangle() {
+            this.type = "triangle";
+            let [
+              firstNumber,
+              secondNumber,
+              result
+            ] = _mylib__WEBPACK_IMPORTED_MODULE_0__[
+              "default"
+            ].getRandomArrayElement(
+              _dict__WEBPACK_IMPORTED_MODULE_1__["dictTriangleTask"]
+            );
+
+            this.solution.push(result.toString());
+
+            const div = document.createElement("div");
+            div.classList.add("container-triangle");
+            const image = document.createElement("img");
+            image.classList.add("image-triangle");
+            image.setAttribute("src", "img/triangle.png");
+
+            const firstCathette = document.createElement("h2");
+            const secondCathette = document.createElement("h2");
+            firstCathette.classList.add("first-cathette");
+            secondCathette.classList.add("second-cathette");
+            firstCathette.innerText = secondNumber;
+            secondCathette.innerText = firstNumber;
+
+            div.appendChild(image);
+            div.appendChild(firstCathette);
+            div.appendChild(secondCathette);
+
+            document
+              .querySelector(".modal-window__task_media")
+              .appendChild(div);
+            document.querySelector(
+              ".modal-window__task_description"
+            ).innerHTML =
+              "find x";
+
+            image.addEventListener("click", e => {
+              if (
+                e.offsetX > 125 &&
+                e.offsetX < 145 &&
+                e.offsetY > 70 &&
+                e.offsetY < 90
+              ) {
+                image.setAttribute("src", "img/triangle1.png");
+                document.getElementById("answer").style.display = "none";
+                document.getElementById("answer").value = this.solution[0];
+              }
+            });
           }
 
           isSolved() {

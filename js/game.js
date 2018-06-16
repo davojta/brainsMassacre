@@ -14,6 +14,7 @@ class Game {
 
   create() {
     document.querySelector(".reg-page").style.display = "none";
+    document.querySelector(".scores-page").style.display = "none";
     document.querySelector(".game-page").style.display = "block";
     const playerName = document.querySelector("input").value;
 
@@ -28,14 +29,6 @@ class Game {
     document
       .getElementById("btn-choose-spell")
       .addEventListener("click", this.btnChooseSpell);
-    document
-      .querySelector(".modal-window__spell")
-      .addEventListener("click", () => {
-        this.spell.chooseSpell(event);
-      });
-    document.getElementById("btn-answer").addEventListener("click", () => {
-      this.setAnswer();
-    });
   }
 
   setAnswer() {
@@ -46,6 +39,7 @@ class Game {
       this.setRedudantAnswer();
     }
     this.spell.task.answer = document.getElementById("answer").value.toString();
+    document.getElementById("answer").style.display = "inline-block";
     document.querySelector(".task-page").style.display = "none";
     document
       .getElementById("btn-choose-spell")
@@ -61,7 +55,6 @@ class Game {
       ans += item.innerText;
     });
     document.getElementById("answer").value = ans;
-    document.getElementById("answer").style.display = "inline-block";
   }
 
   setRedudantAnswer() {
@@ -71,11 +64,9 @@ class Game {
       i => i.checked
     )[0];
     if (chosenInput === undefined) {
-      document.getElementById("answer").style.display = "inline-block";
       return false;
     }
     document.getElementById("answer").value = chosenInput.value;
-    document.getElementById("answer").style.display = "inline-block";
   }
 
   isAlive() {
@@ -85,7 +76,7 @@ class Game {
       setTimeout(() => this.nextMonster(), 2000);
     } else if (!this.player.isAlive()) {
       this.player.die();
-      setTimeout(() => this.finish(), 3000);
+      setTimeout(() => this.finish(), 2000);
     } else {
       document
         .getElementById("btn-choose-spell")
@@ -125,7 +116,38 @@ class Game {
       "game" + Date.now(),
       this.player.name + "," + this.player.score
     );
+    this.reset();
     mylib.createHighscoresTable();
+  }
+
+  reset() {
+    document
+      .querySelector(".sprite-player")
+      .classList.remove("sprite-player__die");
+    document
+      .querySelector(".sprite-player")
+      .classList.add("sprite-player__idle");
+    const spriteMonster = document.querySelector(".sprite-monster");
+    spriteMonster.children[0].classList.remove(
+      dictMonster.headsIdle[this.monster.head]
+    );
+    spriteMonster.children[1].classList.remove(
+      dictMonster.bodiesIdle[this.monster.body]
+    );
+    spriteMonster.children[2].classList.remove(
+      dictMonster.legsIdle[this.monster.legs]
+    );
+    document
+      .getElementById("btn-choose-spell")
+      .removeEventListener("click", this.btnChooseSpell);
+    document
+      .querySelector(".game-page")
+      .classList.remove(
+        dictMonster.backgroundImages[
+          this.monster.score % dictMonster.backgroundImages.length
+        ]
+      );
+    document.querySelector("table").innerHTML = "";
   }
 }
 

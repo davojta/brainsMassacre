@@ -176,6 +176,16 @@ export const dictRedundantTask = {
   ]
 };
 
+export const dictTriangleTask = [
+  [3, 4, 5],
+  [5, 12, 13],
+  [8, 15, 17],
+  [7, 24, 25],
+  [20, 21, 29],
+  [12, 35, 37],
+  [9, 40, 41]
+];
+
 export const preloadImages = [
   "./img/arena1.jpg",
   "./img/arena2.png",
@@ -248,5 +258,7 @@ export const preloadImages = [
   "./img/redudanttask/ostrich.jpg",
   "./img/redudanttask/pears.jpg",
   "./img/redudanttask/pinguin.jpg",
-  "./img/redudanttask/sinica.jpg"
+  "./img/redudanttask/sinica.jpg",
+  "./img/triangle.png",
+  "./img/triangle1.png"
 ];
