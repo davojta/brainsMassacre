@@ -6,6 +6,7 @@ class Player {
     this.score = 0;
     this.audioFire = new Audio();
     this.audioHeal = new Audio();
+    this.audioDie = new Audio();
   }
 
   drawPlayer() {
@@ -27,6 +28,9 @@ class Player {
     this.audioHeal.preload = "auto";
     this.audioHeal.volume = 1;
     this.audioHeal.src = "./audio/playerHeal.mp3";
+    this.audioDie.preload = "auto";
+    this.audioDie.volume = 1;
+    this.audioDie.src = "./audio/playerDie.mp3";
   }
 
   fire() {
@@ -86,6 +90,7 @@ class Player {
   }
 
   die() {
+    this.audioDie.play();
     document
       .querySelector(".sprite-player")
       .classList.remove("sprite-player__idle");
