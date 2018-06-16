@@ -483,6 +483,7 @@
 
           create() {
             document.querySelector(".reg-page").style.display = "none";
+            document.querySelector(".scores-page").style.display = "none";
             document.querySelector(".game-page").style.display = "block";
             const playerName = document.querySelector("input").value;
 
@@ -501,16 +502,6 @@
             document
               .getElementById("btn-choose-spell")
               .addEventListener("click", this.btnChooseSpell);
-            document
-              .querySelector(".modal-window__spell")
-              .addEventListener("click", () => {
-                this.spell.chooseSpell(event);
-              });
-            document
-              .getElementById("btn-answer")
-              .addEventListener("click", () => {
-                this.setAnswer();
-              });
           }
 
           setAnswer() {
@@ -614,9 +605,49 @@
               "game" + Date.now(),
               this.player.name + "," + this.player.score
             );
+            this.reset();
             _mylib__WEBPACK_IMPORTED_MODULE_3__[
               "default"
             ].createHighscoresTable();
+          }
+
+          reset() {
+            document
+              .querySelector(".sprite-player")
+              .classList.remove("sprite-player__die");
+            document
+              .querySelector(".sprite-player")
+              .classList.add("sprite-player__idle");
+            const spriteMonster = document.querySelector(".sprite-monster");
+            spriteMonster.children[0].classList.remove(
+              _dict__WEBPACK_IMPORTED_MODULE_4__["dictMonster"].headsIdle[
+                this.monster.head
+              ]
+            );
+            spriteMonster.children[1].classList.remove(
+              _dict__WEBPACK_IMPORTED_MODULE_4__["dictMonster"].bodiesIdle[
+                this.monster.body
+              ]
+            );
+            spriteMonster.children[2].classList.remove(
+              _dict__WEBPACK_IMPORTED_MODULE_4__["dictMonster"].legsIdle[
+                this.monster.legs
+              ]
+            );
+            document
+              .getElementById("btn-choose-spell")
+              .removeEventListener("click", this.btnChooseSpell);
+            document
+              .querySelector(".game-page")
+              .classList.remove(
+                _dict__WEBPACK_IMPORTED_MODULE_4__["dictMonster"]
+                  .backgroundImages[
+                  this.monster.score %
+                    _dict__WEBPACK_IMPORTED_MODULE_4__["dictMonster"]
+                      .backgroundImages.length
+                ]
+              );
+            document.querySelector("table").innerHTML = "";
           }
         }
 
@@ -664,8 +695,24 @@
             );
           });
 
+        document
+          .getElementById("btn-new-game")
+          .addEventListener("click", () => {
+            game.create();
+          });
+
+        document
+          .querySelector(".modal-window__spell")
+          .addEventListener("click", () => {
+            game.spell.chooseSpell(event);
+          });
+
+        document.getElementById("btn-answer").addEventListener("click", () => {
+          game.setAnswer();
+        });
+
         /*let audio = new Audio();
-audio.volume = 0.1;
+audio.volume = 0.03;
 audio.src = "./audio/soundtrack.mp3";
 audio.autoplay = true;
 audio.loop = true;*/
@@ -1184,6 +1231,14 @@ audio.loop = true;*/
           static createHighscoresTable() {
             let recordsArray = mylib.getHighscores();
             let recordsTable = document.querySelector("table");
+            let headerRow = document.createElement("tr");
+            let headerName = document.createElement("th");
+            let headerScore = document.createElement("th");
+            headerName.innerText = "Name";
+            headerScore.innerText = "Score";
+            headerRow.appendChild(headerName);
+            headerRow.appendChild(headerScore);
+            recordsTable.appendChild(headerRow);
             for (let i = 0; i < recordsArray.length; i++) {
               let tableRow = document.createElement("tr");
               let playerName = document.createElement("td");
