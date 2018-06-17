@@ -17,6 +17,7 @@ class Task {
     this.answer;
   }
 
+  /*choose the random task and call it*/
   generate() {
     document.querySelector(".modal-window__task_media").innerHTML = "";
     document.getElementById("answer").value = "";

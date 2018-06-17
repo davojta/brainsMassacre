@@ -1,16 +1,18 @@
 import Game from "./game.js";
 import mylib from "./mylib";
-import { preloadImages } from "./dict";
+import { preloadedImages } from "./dict";
 
 let game = new Game();
 let myGame = game.create.bind(game);
 
-mylib.preload(preloadImages);
+/*preloading all the images in the game and after that start the game*/
+mylib.preload(preloadedImages);
 window.onload = function() {
   document.querySelector(".loading-page").style.display = "none";
   document.querySelector(".reg-page").style.display = "block";
 };
 
+/*adding event listeners to the buttons*/
 document.getElementById("reg-form").addEventListener("submit", event => {
   event.preventDefault();
   mylib.validateForm("player-name", myGame);

@@ -121,7 +121,7 @@
       /*!********************!*\
   !*** ./js/dict.js ***!
   \********************/
-      /*! exports provided: dictMonster, dictTranslateTask, dictListeningTask, dictCapitalsTask, dictSortTask, dictRedundantTask, dictTriangleTask, dictAnimalsTask, preloadImages */
+      /*! exports provided: dictMonster, dictTranslateTask, dictListeningTask, dictCapitalsTask, dictSortTask, dictRedundantTask, dictTriangleTask, dictAnimalsTask, preloadedImages */
       /***/ function(module, __webpack_exports__, __webpack_require__) {
         "use strict";
         __webpack_require__.r(__webpack_exports__);
@@ -183,9 +183,9 @@
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          "preloadImages",
+          "preloadedImages",
           function() {
-            return preloadImages;
+            return preloadedImages;
           }
         );
         const dictMonster = {
@@ -301,7 +301,12 @@
           bird: ["птица"],
           towel: ["полотенце"],
           table: ["стол", "таблица"],
-          flower: ["цветок", "цвет"]
+          book: ["книга", "книжка"],
+          glass: ["стакан", "стекло"],
+          song: ["песня", "песенка"],
+          pencil: ["карандаш"],
+          cloud: ["облако", "туча"],
+          train: ["поезд"]
         };
 
         const dictListeningTask = {
@@ -328,14 +333,22 @@
 
         const dictSortTask = {
           wolf: ["wolf", "flow"],
-          bisycle: ["bisycle"],
-          clothes: ["clothes"],
+          bicycle: ["bicycle"],
+          wall: ["wall"],
           apple: ["apple"],
           violet: ["violet"],
           coffee: ["coffee"],
           market: ["market"],
           mirror: ["mirror"],
-          rabbit: ["rabbit"]
+          rabbit: ["rabbit"],
+          mother: ["mother"],
+          brick: ["brick"],
+          river: ["river"],
+          heart: ["heart"],
+          road: ["road"],
+          planet: ["planet"],
+          promise: ["promise"],
+          water: ["water"]
         };
 
         const dictRedundantTask = {
@@ -388,7 +401,7 @@
           snake: ["361", "428", "151", "220"]
         };
 
-        const preloadImages = [
+        const preloadedImages = [
           "./img/arena1.jpg",
           "./img/arena2.png",
           "./img/arena3.png",
@@ -519,7 +532,10 @@
             this.monster.drawMonster(this.player);
 
             this.spell = new _spell__WEBPACK_IMPORTED_MODULE_2__["default"]();
+
+            /*binding this event to have an opportunity to remove this event from the button*/
             this.btnChooseSpell = this.spell.open.bind(this.spell);
+
             document
               .getElementById("btn-choose-spell")
               .addEventListener("click", this.btnChooseSpell);
@@ -535,22 +551,24 @@
             this.spell.task.answer = document
               .getElementById("answer")
               .value.toString();
+
             document.getElementById("answer").style.display = "inline-block";
             document.querySelector(".task-page").style.display = "none";
             document
               .getElementById("btn-choose-spell")
               .removeEventListener("click", this.btnChooseSpell);
+
             this.spell.cast(this.player, this.monster);
             setTimeout(this.isAlive.bind(this), 2000);
           }
 
           setSortAnswer() {
-            const ul = document.querySelector(".sortable");
-            let ans = "";
-            Array.prototype.forEach.call(ul.children, item => {
-              ans += item.innerText;
+            const letters = document.querySelector(".sortable");
+            let answer = "";
+            Array.prototype.forEach.call(letters.children, item => {
+              answer += item.innerText;
             });
-            document.getElementById("answer").value = ans;
+            document.getElementById("answer").value = answer;
           }
 
           setRedudantAnswer() {
@@ -570,7 +588,10 @@
           isAlive() {
             if (!this.monster.isAlive()) {
               this.monster.die();
-              setTimeout(() => this.monster.stopDie(), 1999);
+              setTimeout(
+                () => this.monster.stopDie(),
+                1999
+              ); /*making time delays to wait the finish of animations*/
               setTimeout(() => this.nextMonster(), 2000);
             } else if (!this.player.isAlive()) {
               this.player.die();
@@ -582,6 +603,7 @@
             }
           }
 
+          /*when the current monster dies make the new monster*/
           nextMonster() {
             const spriteMonster = document.querySelector(".sprite-monster");
             spriteMonster.children[0].classList.remove(
@@ -605,6 +627,8 @@
               this.player.score
             );
             this.monster.drawMonster(this.player);
+
+            /*adding some health to the player before the new round*/
             this.player.health = Math.min(
               this.player.health +
                 _mylib__WEBPACK_IMPORTED_MODULE_3__["default"].getRandomFromTo(
@@ -619,6 +643,7 @@
               .addEventListener("click", this.btnChooseSpell);
           }
 
+          /*when the player dies we put hus result to local storage, reset game and create the table with highscores*/
           finish() {
             document.querySelector(".game-page").style.display = "none";
             document.querySelector(".scores-page").style.display = "block";
@@ -632,6 +657,7 @@
             ].createHighscoresTable();
           }
 
+          /*bring the page back to it's original state*/
           reset() {
             document
               .querySelector(".sprite-player")
@@ -698,14 +724,16 @@
         let game = new _game_js__WEBPACK_IMPORTED_MODULE_0__["default"]();
         let myGame = game.create.bind(game);
 
+        /*preloading all the images in the game and after that start the game*/
         _mylib__WEBPACK_IMPORTED_MODULE_1__["default"].preload(
-          _dict__WEBPACK_IMPORTED_MODULE_2__["preloadImages"]
+          _dict__WEBPACK_IMPORTED_MODULE_2__["preloadedImages"]
         );
         window.onload = function() {
           document.querySelector(".loading-page").style.display = "none";
           document.querySelector(".reg-page").style.display = "block";
         };
 
+        /*adding event listeners to the buttons*/
         document
           .getElementById("reg-form")
           .addEventListener("submit", event => {
@@ -1320,6 +1348,7 @@
             return array;
           }
 
+          /*checks the validity of the form*/
           static validateForm(id, func) {
             const name = document.getElementById(id).value;
             if (name !== "") {
@@ -1327,6 +1356,7 @@
             }
           }
 
+          /*preloads all the images used on the page*/
           static preload(arr) {
             let images = new Array();
             for (let i = 0; i < arr.length; i++) {
@@ -1529,6 +1559,7 @@
             setTimeout(player.stopHealing, 2000);
           }
 
+          /*applying spell depending on whether the task is solved*/
           cast(player, monster) {
             switch (this.kind) {
               case "atack-spell":
@@ -1575,6 +1606,7 @@
             this.answer;
           }
 
+          /*choose the random task and call it*/
           generate() {
             document.querySelector(".modal-window__task_media").innerHTML = "";
             document.getElementById("answer").value = "";

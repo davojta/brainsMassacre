@@ -111,7 +111,12 @@ export const dictTranslateTask = {
   bird: ["птица"],
   towel: ["полотенце"],
   table: ["стол", "таблица"],
-  flower: ["цветок", "цвет"]
+  book: ["книга", "книжка"],
+  glass: ["стакан", "стекло"],
+  song: ["песня", "песенка"],
+  pencil: ["карандаш"],
+  cloud: ["облако", "туча"],
+  train: ["поезд"]
 };
 
 export const dictListeningTask = {
@@ -138,14 +143,22 @@ export const dictCapitalsTask = {
 
 export const dictSortTask = {
   wolf: ["wolf", "flow"],
-  bisycle: ["bisycle"],
-  clothes: ["clothes"],
+  bicycle: ["bicycle"],
+  wall: ["wall"],
   apple: ["apple"],
   violet: ["violet"],
   coffee: ["coffee"],
   market: ["market"],
   mirror: ["mirror"],
-  rabbit: ["rabbit"]
+  rabbit: ["rabbit"],
+  mother: ["mother"],
+  brick: ["brick"],
+  river: ["river"],
+  heart: ["heart"],
+  road: ["road"],
+  planet: ["planet"],
+  promise: ["promise"],
+  water: ["water"]
 };
 
 export const dictRedundantTask = {
@@ -198,7 +211,7 @@ export const dictAnimalsTask = {
   snake: ["361", "428", "151", "220"]
 };
 
-export const preloadImages = [
+export const preloadedImages = [
   "./img/arena1.jpg",
   "./img/arena2.png",
   "./img/arena3.png",
