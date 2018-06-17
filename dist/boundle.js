@@ -121,7 +121,7 @@
       /*!********************!*\
   !*** ./js/dict.js ***!
   \********************/
-      /*! exports provided: dictMonster, dictTranslateTask, dictListeningTask, dictCapitalsTask, dictSortTask, dictRedundantTask, dictTriangleTask, preloadImages */
+      /*! exports provided: dictMonster, dictTranslateTask, dictListeningTask, dictCapitalsTask, dictSortTask, dictRedundantTask, dictTriangleTask, dictAnimalsTask, preloadImages */
       /***/ function(module, __webpack_exports__, __webpack_require__) {
         "use strict";
         __webpack_require__.r(__webpack_exports__);
@@ -172,6 +172,13 @@
           "dictTriangleTask",
           function() {
             return dictTriangleTask;
+          }
+        );
+        /* harmony export (binding) */ __webpack_require__.d(
+          __webpack_exports__,
+          "dictAnimalsTask",
+          function() {
+            return dictAnimalsTask;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
@@ -369,6 +376,18 @@
           [9, 40, 41]
         ];
 
+        const dictAnimalsTask = {
+          bear: ["0", "80", "20", "130"],
+          tiger: ["85", "195", "54", "127"],
+          monkey: ["196", "260", "60", "127"],
+          antelope: ["280", "365", "0", "127"],
+          rabbit: ["380", "425", "53", "127"],
+          crocodile: ["25", "183", "160", "224"],
+          lion: ["184", "251", "130", "223"],
+          leopard: ["260", "357", "141", "223"],
+          snake: ["361", "428", "151", "220"]
+        };
+
         const preloadImages = [
           "./img/arena1.jpg",
           "./img/arena2.png",
@@ -443,7 +462,9 @@
           "./img/redudanttask/pinguin.jpg",
           "./img/redudanttask/sinica.jpg",
           "./img/triangle.png",
-          "./img/triangle1.png"
+          "./img/triangle1.png",
+          "./img/animalsTask.jpg",
+          "./img/chosenAnimal.png"
         ];
 
         /***/
@@ -1565,7 +1586,8 @@ audio.loop = true;*/
               this.sort,
               this.redundant,
               this.equation,
-              this.triangle
+              this.triangle,
+              this.animals
             ];
             const currentTask = _mylib__WEBPACK_IMPORTED_MODULE_0__["default"]
               .getRandomArrayElement(tasks)
@@ -1917,6 +1939,58 @@ audio.loop = true;*/
                 document.getElementById("answer").value = this.solution[0];
               }
             });
+          }
+
+          animals() {
+            this.type = "animals";
+            document.getElementById("answer").style.display = "none";
+
+            const img = document.createElement("img");
+            img.setAttribute("src", "img/animalsTask.jpg");
+            document
+              .querySelector(".modal-window__task_media")
+              .appendChild(img);
+
+            const chosenAnimal = document.createElement("img");
+            chosenAnimal.setAttribute("src", "img/chosenAnimal.png");
+            chosenAnimal.classList.add("chosenAnimal");
+            document
+              .querySelector(".modal-window__task_media")
+              .appendChild(chosenAnimal);
+
+            const arrayOfWords = Object.keys(
+              _dict__WEBPACK_IMPORTED_MODULE_1__["dictAnimalsTask"]
+            );
+            const arrayOfWordsLength = arrayOfWords.length;
+            this.condition =
+              arrayOfWords[
+                _mylib__WEBPACK_IMPORTED_MODULE_0__["default"].getRandomFromTo(
+                  0,
+                  arrayOfWordsLength - 1
+                )
+              ];
+            this.solution =
+              _dict__WEBPACK_IMPORTED_MODULE_1__["dictAnimalsTask"][
+                this.condition
+              ];
+
+            img.addEventListener("click", e => {
+              document.getElementById("answer").value = "";
+              chosenAnimal.style.left = e.offsetX + 65 + "px";
+              chosenAnimal.style.top = e.offsetY + 150 + "px";
+              if (
+                e.offsetX > +this.solution[0] &&
+                e.offsetX < +this.solution[1] &&
+                e.offsetY > +this.solution[2] &&
+                e.offsetY < +this.solution[3]
+              ) {
+                document.getElementById("answer").value = this.solution[0];
+              }
+            });
+
+            document.querySelector(
+              ".modal-window__task_description"
+            ).innerHTML = `show the ${this.condition} on the picture`;
           }
 
           isSolved() {

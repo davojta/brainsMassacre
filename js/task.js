@@ -5,7 +5,8 @@ import {
   dictCapitalsTask,
   dictSortTask,
   dictRedundantTask,
-  dictTriangleTask
+  dictTriangleTask,
+  dictAnimalsTask
 } from "./dict";
 
 class Task {
@@ -27,7 +28,8 @@ class Task {
       this.sort,
       this.redundant,
       this.equation,
-      this.triangle
+      this.triangle,
+      this.animals
     ];
     const currentTask = mylib.getRandomArrayElement(tasks).bind(this);
     currentTask();
@@ -280,6 +282,46 @@ class Task {
         document.getElementById("answer").value = this.solution[0];
       }
     });
+  }
+
+  animals() {
+    this.type = "animals";
+    document.getElementById("answer").style.display = "none";
+
+    const img = document.createElement("img");
+    img.setAttribute("src", "img/animalsTask.jpg");
+    document.querySelector(".modal-window__task_media").appendChild(img);
+
+    const chosenAnimal = document.createElement("img");
+    chosenAnimal.setAttribute("src", "img/chosenAnimal.png");
+    chosenAnimal.classList.add("chosenAnimal");
+    document
+      .querySelector(".modal-window__task_media")
+      .appendChild(chosenAnimal);
+
+    const arrayOfWords = Object.keys(dictAnimalsTask);
+    const arrayOfWordsLength = arrayOfWords.length;
+    this.condition =
+      arrayOfWords[mylib.getRandomFromTo(0, arrayOfWordsLength - 1)];
+    this.solution = dictAnimalsTask[this.condition];
+
+    img.addEventListener("click", e => {
+      document.getElementById("answer").value = "";
+      chosenAnimal.style.left = e.offsetX + 65 + "px";
+      chosenAnimal.style.top = e.offsetY + 150 + "px";
+      if (
+        e.offsetX > +this.solution[0] &&
+        e.offsetX < +this.solution[1] &&
+        e.offsetY > +this.solution[2] &&
+        e.offsetY < +this.solution[3]
+      ) {
+        document.getElementById("answer").value = this.solution[0];
+      }
+    });
+
+    document.querySelector(
+      ".modal-window__task_description"
+    ).innerHTML = `show the ${this.condition} on the picture`;
   }
 
   isSolved() {

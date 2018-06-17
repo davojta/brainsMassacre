@@ -228,7 +228,7 @@ button {
 }
 
 .modal-window__task_media img {
-  width: 300px;
+  max-width: 450px;
 }
 
 .sortable {
@@ -252,7 +252,7 @@ label > input {
 label > input + img {
   cursor: pointer;
   height: 100px;
-  max-width: 150px;
+  width: 150px;
   margin: 5px;
 }
 label > input:checked + img {
@@ -319,4 +319,10 @@ tr {
   position: absolute;
   top: 90px;
   right: 0;
+}
+
+.chosenAnimal {
+  position: absolute;
+  top: -999px;
+  left: -999px;
 }
