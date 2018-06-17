@@ -1,0 +1,113 @@
+.loading {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: #111227;
+  z-index: 999;
+}
+
+.loading__sprite {
+  position: absolute;
+  left: 43vw;
+  top: 35vh;
+  width: 165px;
+  height: 165px;
+  background: url(../img/loadingPlayer.png) no-repeat 0 0;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  border: #f2ce0c solid 2px;
+  animation-duration: 800ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-name: sprite14Frames;
+}
+
+@-webkit-keyframes sprite14Frames {
+  0% {
+    background-position: 0 0;
+  }
+  7% {
+    background-position: 0 0;
+  }
+  7.001% {
+    background-position: -165px 0;
+  }
+  14% {
+    background-position: -165px 0;
+  }
+  14.001% {
+    background-position: -330px 0;
+  }
+  21% {
+    background-position: -330px 0;
+  }
+  21.001% {
+    background-position: -495px 0;
+  }
+  28% {
+    background-position: -495px 0;
+  }
+  28.001% {
+    background-position: -660px 0;
+  }
+  35% {
+    background-position: -660px 0;
+  }
+  35.001% {
+    background-position: -825px 0;
+  }
+  42% {
+    background-position: -825px 0;
+  }
+  42.001% {
+    background-position: -990px 0;
+  }
+  49% {
+    background-position: -990px 0;
+  }
+  49.001% {
+    background-position: -1155px 0;
+  }
+  56% {
+    background-position: -1155px 0;
+  }
+  56.001% {
+    background-position: -1320px 0;
+  }
+  63% {
+    background-position: -1320px 0;
+  }
+  63.001% {
+    background-position: -1485px 0;
+  }
+  70% {
+    background-position: -1485px 0;
+  }
+  70.001% {
+    background-position: -1650px 0;
+  }
+  77% {
+    background-position: -1650px 0;
+  }
+  77.001% {
+    background-position: -1815px 0;
+  }
+  84% {
+    background-position: -1815px 0;
+  }
+  84.001% {
+    background-position: -1980px 0;
+  }
+  91% {
+    background-position: -1980px 0;
+  }
+  91.001% {
+    background-position: -2145px 0;
+  }
+  99.999% {
+    background-position: -2145px 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
