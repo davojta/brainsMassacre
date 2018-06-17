@@ -17,7 +17,7 @@ class mylib {
     let headerName = document.createElement("th");
     let headerScore = document.createElement("th");
     headerName.innerText = "Name";
-    headerScore.innerText = "Score";
+    headerScore.innerText = "Murders";
     headerRow.appendChild(headerName);
     headerRow.appendChild(headerScore);
     recordsTable.appendChild(headerRow);

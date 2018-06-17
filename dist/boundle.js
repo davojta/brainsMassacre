@@ -723,7 +723,7 @@
           });
 
         document
-          .querySelector(".modal-window__spell")
+          .querySelector(".modal-window__spell_type")
           .addEventListener("click", () => {
             game.spell.chooseSpell(event);
           });
@@ -732,11 +732,11 @@
           game.setAnswer();
         });
 
-        /*let audio = new Audio();
-audio.volume = 0.03;
-audio.src = "./audio/soundtrack.mp3";
-audio.autoplay = true;
-audio.loop = true;*/
+        let audio = new Audio();
+        audio.volume = 0.03;
+        audio.src = "./audio/soundtrack.mp3";
+        audio.autoplay = true;
+        audio.loop = true;
 
         /***/
       },
@@ -1256,7 +1256,7 @@ audio.loop = true;*/
             let headerName = document.createElement("th");
             let headerScore = document.createElement("th");
             headerName.innerText = "Name";
-            headerScore.innerText = "Score";
+            headerScore.innerText = "Murders";
             headerRow.appendChild(headerName);
             headerRow.appendChild(headerScore);
             recordsTable.appendChild(headerRow);
@@ -1542,7 +1542,7 @@ audio.loop = true;*/
                   : this.atack(monster, player);
                 break;
               default:
-                null;
+                return false;
             }
           }
         }

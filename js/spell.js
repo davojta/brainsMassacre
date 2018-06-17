@@ -56,7 +56,7 @@ class Spell {
         this.task.isSolved() ? this.heal(player) : this.atack(monster, player);
         break;
       default:
-        null;
+        return false;
     }
   }
 }

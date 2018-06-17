@@ -613,7 +613,7 @@
   width: 165px;
   height: 165px;
   background: url(../img/loadingPlayer.png) no-repeat 0 0;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.3);
   border-radius: 50%;
   border: #f2ce0c solid 2px;
   animation-duration: 800ms;
