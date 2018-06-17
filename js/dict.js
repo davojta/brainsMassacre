@@ -186,6 +186,18 @@ export const dictTriangleTask = [
   [9, 40, 41]
 ];
 
+export const dictAnimalsTask = {
+  bear: ["0", "80", "20", "130"],
+  tiger: ["85", "195", "54", "127"],
+  monkey: ["196", "260", "60", "127"],
+  antelope: ["280", "365", "0", "127"],
+  rabbit: ["380", "425", "53", "127"],
+  crocodile: ["25", "183", "160", "224"],
+  lion: ["184", "251", "130", "223"],
+  leopard: ["260", "357", "141", "223"],
+  snake: ["361", "428", "151", "220"]
+};
+
 export const preloadImages = [
   "./img/arena1.jpg",
   "./img/arena2.png",
@@ -260,5 +272,7 @@ export const preloadImages = [
   "./img/redudanttask/pinguin.jpg",
   "./img/redudanttask/sinica.jpg",
   "./img/triangle.png",
-  "./img/triangle1.png"
+  "./img/triangle1.png",
+  "./img/animalsTask.jpg",
+  "./img/chosenAnimal.png"
 ];
