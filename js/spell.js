@@ -45,6 +45,7 @@ class Spell {
     setTimeout(player.stopHealing, 2000);
   }
 
+  /*applying spell depending on whether the task is solved*/
   cast(player, monster) {
     switch (this.kind) {
       case "atack-spell":

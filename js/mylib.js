@@ -79,6 +79,7 @@ class mylib {
     return array;
   }
 
+  /*checks the validity of the form*/
   static validateForm(id, func) {
     const name = document.getElementById(id).value;
     if (name !== "") {
@@ -86,6 +87,7 @@ class mylib {
     }
   }
 
+  /*preloads all the images used on the page*/
   static preload(arr) {
     let images = new Array();
     for (let i = 0; i < arr.length; i++) {
