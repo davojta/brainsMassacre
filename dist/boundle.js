@@ -273,7 +273,10 @@
             '"Vertuhai"',
             '"Aristocrat"',
             '"Lentyai"',
-            '"Babusya"'
+            '"Babusya"',
+            '"Kisa"',
+            '"Arhimed"',
+            '"Pharaon"'
           ],
           thirdNames: [
             "Vonuchkin",
@@ -286,7 +289,9 @@
             "Zaperdyak",
             "Suhozad",
             "Tryapkin",
-            "Zapadlovsky"
+            "Zapadlovsky",
+            "Kozliatko",
+            "Koziavko"
           ],
 
           backgroundImages: ["arena_1", "arena_2", "arena_3", "arena_4"]
@@ -306,7 +311,8 @@
           song: ["песня", "песенка"],
           pencil: ["карандаш"],
           cloud: ["облако", "туча"],
-          train: ["поезд"]
+          train: ["поезд"],
+          stone: ["камень", "камешек"]
         };
 
         const dictListeningTask = {
