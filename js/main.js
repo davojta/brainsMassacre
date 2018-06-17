@@ -20,16 +20,18 @@ document.getElementById("btn-new-game").addEventListener("click", () => {
   game.create();
 });
 
-document.querySelector(".modal-window__spell").addEventListener("click", () => {
-  game.spell.chooseSpell(event);
-});
+document
+  .querySelector(".modal-window__spell_type")
+  .addEventListener("click", () => {
+    game.spell.chooseSpell(event);
+  });
 
 document.getElementById("btn-answer").addEventListener("click", () => {
   game.setAnswer();
 });
 
-/*let audio = new Audio();
+let audio = new Audio();
 audio.volume = 0.03;
 audio.src = "./audio/soundtrack.mp3";
 audio.autoplay = true;
-audio.loop = true;*/
+audio.loop = true;
