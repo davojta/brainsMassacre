@@ -7,6 +7,9 @@
   <link rel="stylesheet" type="text/css" href="styles/slider.css">
 </head>
 <body>
+  <div class="loading">
+    <div class="loading__sprite"></div>
+  </div>
   <header>
     <div class="panel">
       <nav>
@@ -73,5 +76,10 @@
       <a href="https://github.com/ivan-kolesen"><img src="img/github.png" width="50px"></a>
     </section>
   </main>
+  <script>
+      window.onload = function() {
+          document.querySelector(".loading").style.display = "none";
+      };
+  </script>
 </body>
 </html>
